@@ -1,0 +1,634 @@
+$weight-serif: 600;
+
+%button {
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    border: none;  
+    opacity: 1;
+    cursor: pointer;
+    height: 49px;
+    margin-top: 30px;
+    line-height: 49px;
+}
+
+@mixin padL-R($l, $r) {
+    padding-left: $l;
+    padding-right: $r;
+}
+
+@mixin m-p($m, $p) {
+    margin: $m;
+    padding: $p;
+}
+
+@mixin ff($f, $s) {
+    @font-face {
+        font-family: $f;
+        src: url($s);
+    }
+}
+
+@mixin fonter($f, $s, $w, $c) {
+    font: {
+        family: $f;
+        size: $s;
+        weight: $w;
+    }
+    color: $c;
+}
+
+@mixin w-h($w, $h) {
+    width: $w;
+    height: $h;
+}
+
+@mixin dis-dir($dis, $dir) {
+    display: $dis;
+    flex-direction: $dir;
+}
+
+body {
+    background-color: black;
+}
+
+body, html {
+    @include m-p(0, 0);
+    cursor: default;
+}
+
+@include ff('Raleway', 'fonts/Raleway/Raleway-Light.ttf');
+@include ff('Didact Gothic', 'fonts/DidactGothic.ttf');
+
+.firstscreen_viewer {
+    display: flex;
+}
+
+.contactpart {
+    @include w-h(99vw, 1080px);
+    margin: 0 auto;
+}
+
+h1, h2, h3, h4, p {
+    @include m-p(0, 0);
+    font-feature-settings: 'pnum' on, 'lnum' on;
+}
+
+h1 {
+    @include fonter("Didact Gothic", 160px, 400, white);
+    line-height: 150px;
+    padding: 170px 0 0 197px;
+}
+
+h2 {
+    @include fonter(Raleway, 60px, 400, white);
+    padding-top: 229px;
+}
+
+.leftcolumn, .rightcolumn {
+    display: block;
+    width: 100%;
+}
+
+.loginandpass, .flexrow {
+    @include dis-dir(flex, row);
+    .button.active {
+        background: white;
+        p {
+            color: black;
+        }
+    }
+}
+
+.button {
+    @extend %button;
+}
+
+.buttons {
+    @include dis-dir(flex, row);
+    div
+    {
+        @include fonter(Raleway, '', 400, white);
+        @extend %button;
+        background: #181818;
+        @include padL-R(30px, 30px);
+    }
+    div:last-child {
+        margin-left: 15px;
+    }
+    .active {
+        border: 1px solid #565656;
+        opacity: 0.5;
+    }  
+}
+
+.buttons + p {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-top: 30px;
+    padding-right: 520px;
+    line-height: 30px;
+}
+
+.log_in {
+    @include dis-dir(flex, column);
+    margin-top: 60px;
+    .inputfield {
+        @include w-h(315px, 79px);
+        display: block;
+        border: 1px solid #565656;
+        color: #565656;
+        background: black;
+        border-radius: 5px;
+        margin-top: 30px;
+        font-size: 16px;
+        padding: 0 30px;
+    }
+    .inputfield:last-child {
+        margin-left: 15px;
+    }
+    .inputfield:focus {
+        border: 1px solid white;
+        color: white;
+    }
+}
+
+p, .button, .enterbutton, span {
+    @include fonter(Raleway, '', 500, white);
+}
+
+h3 {
+    @include fonter(Raleway, 30px, 600, white);
+}
+
+#changePart {
+    .log_in {
+        p {
+            margin-top: 0;
+        }
+        p:first-child {
+            font-size: 30px;
+        }
+    }
+    .flexrow a {
+        @include fonter(Raleway, '', '', white);
+        line-height: 79px;
+        margin-left: 43px;
+        &:first-child {
+            margin-left: 0;
+        }
+    }
+    h3 {
+        font-weight: 400;
+        margin-top: 60px;
+    }
+}
+
+#viewer a:first-child {
+    margin-left: 0;
+}
+
+.enterbutton {
+    @include w-h(200px, 79px);
+    @include padL-R(50px, 50px);
+    margin-top: 50px;
+    text-align: center;
+    line-height: 79px; 
+    border-radius: 5px;
+    background: #181818;
+    cursor: pointer;
+    display: inline-block;
+}
+
+a.enterbutton, a.enterbutton:active {
+    text-decoration: none;
+}
+
+a.enterbutton + a {
+    padding-top: 50px;
+}
+
+.logwithhelp {
+    @include w-h(60px, 60px);
+    margin: 50px 0 0 20px;
+    background: #181818;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.logwithhelp + .logwithhelp + .logwithhelp .logwithhelp_icon {
+    padding-top: 6px;
+}
+
+.logwithhelp_icon {
+    margin: 18px;
+}
+
+.nodisplay {
+    display: none;
+}
+
+.loginandpass {
+    @include dis-dir(flex, row);
+}
+
+header {
+    border-bottom: solid 1px #181818;
+    margin-left: 302px;
+    h3, .flexcolumn {
+        padding: 48px 20px 47px 30px;
+    }
+    .flexcolumn {
+    @include padL-R(30px, 0); 
+        p {
+            font-weight: $weight-serif;
+        }
+        p:first-child {
+            font-size: 12px;
+            opacity: 0.4;
+        }
+    }
+    .button {
+        width: 221px;
+        background: white;
+        border: none;
+        margin-top: 41px;
+        margin-left: auto;
+        margin-right: 66px;
+        overflow: hidden;
+        p {
+            color: black;
+            font-weight: 500;
+        }
+    }
+    .backbutton {
+        display: inline-block;
+        cursor: pointer;
+        background: #181818;
+        @include w-h(40px, 40px);
+        text-align: center;
+        border-radius: 5px;
+    }
+}
+
+section.sidebar {
+    position: fixed;
+    border-right: solid 1px #181818;
+    @include w-h(300px, 100%);
+    .thumbnail {
+        border-radius: 50%;
+        background: #181818;
+        @include w-h(70px, 70px);
+    }
+    & menu {
+        margin: 0;
+        padding: 35px 20px;
+        border-bottom: solid 1px #181818;
+        span {
+            margin-left: 2px;
+            font-weight: $weight-serif;
+        }
+        li {
+            margin-top: 30px;
+            list-style-image: url(vectors/menusymbol.svg);
+            opacity: 0.3;
+            cursor: pointer;
+        }
+        li:first-child {
+            margin: 0;
+        }
+        li:hover, li.active {
+            opacity: 1;
+        }
+    }
+    footer {
+        @include dis-dir(flex, column);
+        justify-content: flex-end;
+        height: 100%;
+    }
+}
+
+#username {
+    @include w-h(119px, 53px);
+    padding: 20px 0 0 20px;
+    p {
+        @include fonter(Raleway, 16px, 600, white);
+    }
+}
+
+.profile {
+    @include dis-dir(flex, column);
+    padding: 30px 0 27px 20px;
+    border-bottom: solid 1px #181818;
+    .button {
+        margin-left: 0;
+        padding: 0 15px;
+        width: 224px;
+        background: #181818;
+    }
+    .expense {
+        @include dis-dir(flex, row);
+        margin-top: 30px;
+        p {
+            font-weight: 600;
+            padding-left: 16px;
+        }
+        p:first-child {
+            font-size: 12px;
+            opacity: 0.4;
+        }
+        .blockofcoins {
+            @include w-h(32px, 32px);
+            background: #181818;
+            border-radius: 5px;
+            .coins {
+                padding: 10px;
+            }
+        }
+    }
+}
+
+section.content {
+    menu {
+        display: flex;
+        margin-left: 293px;
+        margin-top: 30px;
+        li {
+            padding: 15px 36px;
+            cursor: pointer;
+            display: inline-block;
+        }
+        li:first-child {
+            padding: 15px 30px;
+            margin: 0;
+        }
+        li.active, li:hover {
+            background: #181818;
+            border-radius: 5px;
+        }
+    }
+    .content_block .flexcolumn {
+        margin-top: 20px;
+        p {
+            font-weight: $weight-serif;
+        }
+        p:first-child {
+            font-size: 12px;
+            opacity: 0.4;
+        }
+    }
+}
+
+.flexcolumn {
+    @include dis-dir(flex, column);
+}
+
+section.sidebar menu li.active, 
+section.sidebar menu li:hover, 
+.extrainfo p:hover {
+    opacity: 1;
+}
+
+.extrainfo {
+    display: block;
+    height: 123px;
+    border-bottom: solid 1px #181818; 
+    border-top: solid 1px #181818;
+    padding: 30px 0 0 20px;
+    line-height: 40px;
+    p {
+        font-weight: 600;
+        cursor: pointer;
+        opacity: 0.3;
+    }
+    p:hover {
+        opacity: 1;
+    }
+}
+
+#theme {
+    > div {
+        display: flex;
+        align-items: center;
+        height: 96px; 
+    }
+    p {
+        @include fonter(Raleway, 14px, 500, white);
+    }
+}
+
+#night, #day {
+    margin-left: 20px;
+    @include w-h(98px, 36px);
+    border-radius: 5px; 
+    border: white solid 1px;
+    text-align: center;
+    line-height: 36px;
+    opacity: 0.3;
+    cursor: pointer;
+}
+
+#night.active, #day.active {
+    opacity: 1;
+    background: #181818;
+    border: none;
+}
+
+section.battlespage {
+    .content {
+        @include dis-dir(flex, row);
+        margin: 30px 0 0 320px;
+        flex-wrap: wrap;
+        .content_block {
+            border-radius: 5px;
+            @include w-h(228px, 360px);
+            background: #181818;
+            margin: 0 0 20px 20px;
+            padding: 30px;
+            padding-bottom: 0;
+        }
+    }
+}
+
+h4 {
+    @include fonter(Raleway, 25px, '', white);
+}
+
+.content_block {
+    .image_container {
+        position: relative;
+        @include w-h(346px, 260px);
+        margin: 10px;
+        .block_medal {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            @include w-h(50px, 50px);
+            background: #0D0D0D;
+            text-align: center;
+            line-height: 60px;
+        }
+    }
+    .flexcolumn {
+        margin-top: 20px;
+    }
+    .button {
+        width: 221px;
+    }
+    .button.battle__end {
+        border: white solid 1px;
+        color: white;
+    }
+    .button.battle__not_end {
+        background: white;
+        border: none;
+        p {
+            color: black;
+        }
+    }
+}
+
+.button.battle__not_end p:after {
+    content: url(vectors/bonfire.svg);
+}
+
+section.battle header h3 {
+    padding-left: 0;
+}
+
+.onebattlepage .content_battles {
+    @include dis-dir(flex, row);
+    margin: 30px 0 0 312px;
+    flex-wrap: wrap;
+    .content_block {
+        @include w-h(366px, 320px);
+        border-radius: 5px;
+        background: #181818;
+        margin: 0 0 20px 20px;
+        padding-bottom: 0;
+        footer {
+            display: flex;
+            margin: 10px;
+            justify-content: space-between;
+            .stat {
+                display: flex;
+                p {
+                    font-size: 12px;
+                    opacity: 0.5;
+                    line-height: 30px;
+                    padding-left: 5px;
+                }
+                .stat_redacts,
+                .stat_likes,
+                .stat_score {
+                    display: flex;
+                    margin-left: 15px;
+                }
+            }
+            .thumbnail {
+                border-radius: 50%;
+                background: #565656;
+                @include w-h(30px, 30px);
+            }
+        }
+        .username {
+            margin-left: 10px;
+            width: 100px;
+            p {
+                font-size: 12px;
+                opacity: 0.5;
+            }
+        }
+    }
+}
+
+section.battleupload {
+    h4 {
+        margin: 50px 0 0 345px;
+    }
+    a {
+        text-decoration: none;
+    }
+} 
+
+.uploadwork {
+    display: flex;
+    .workuploadwindow {
+        @include w-h(845px, 615px);
+        text-align: center;
+        border: dashed 3px rgba(255, 255, 255, 0.2);
+        border-radius: 5px;
+        margin: 44px 0 0 358px;
+        img {
+            margin-top: 226px;
+        }
+        img:first-child {
+            position: absolute;
+            margin: 243px 0 0 19px;
+        }
+        p {
+            margin-top: 7px; /**/
+            font-size: 16px;
+            font-weight: 600;
+        }
+        p:first-child {
+            margin-top: 25px;
+            @include fonter('Raleway', 24px, 600, '');
+        }
+        p:last-child {
+            margin-top: 20px;
+            opacity: 0.3;
+        }
+    }
+    .workinfo {
+        @include dis-dir(flex, column);
+        margin-left: 58px;
+        .workinfo_heading {
+            width: 356px;
+            margin-top: 50px;
+            p:first-child {
+                @include fonter('Raleway', 20px, 600, '');
+            }
+            p:last-child {
+                font-weight: 400;
+                padding-top: 20px;
+            }
+        }
+        .inputwindow {
+            @include w-h(416px, 382px);
+            border: 1px solid #565656;
+            border-radius: 5px;
+            margin-top: 30px;
+        }
+    }
+    .inputfield {
+        background: inherit;
+        @include fonter(Raleway, 16px, 400, #565656);
+        padding: 20px 220px 342px 20px;
+        border: none;
+    }
+    .inputfield:focus {
+        border: 1px solid white;
+        border-radius: 5px;
+        color: white;
+    }
+    .button {
+        padding: 0 30px;
+        color: white;
+        border: 1px solid #FFFFFF;
+        p {
+            font-weight: 500;
+        }
+    }
+    .button:last-child {
+        margin-left: 10px;
+    }
+    .flexrow {
+        .button.active {
+            background: #FFFFFF;
+        }
+        .button.active p {
+            color: black;
+        }
+    }
+}
