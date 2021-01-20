@@ -1,0 +1,2 @@
+export const DAY_SWITCHER = 'DAY_SWITCHER';
+export const NIGHT_SWITCHER = 'NIGHT_SWITCHER';

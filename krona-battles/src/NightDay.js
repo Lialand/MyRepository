@@ -1,46 +1,19 @@
-import React from 'react'
+import React from 'react';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import NightDay from './redux/maincomp'
+import { rootReducer } from './redux/reducer'
 
-class NightDay extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            class: {
-                activeDay: '',
-                activeNight: 'active',
-            }
-        }                    
-    }
+const store = createStore(rootReducer);
 
-    switchNight() {
-        this.setState({
-            class: {
-                activeDay: '',
-                activeNight: 'active',
-            }}
-        );
-    }
-
-    switchDay() {
-        this.setState({
-            class: {
-                activeDay: 'active',
-                activeNight: '',
-            }}
-        )
-    }
-
+class ThemeButton extends React.Component{
     render() {
-        return(
-            <div>
-                <div id="night" className={this.state.class.activeNight} onClick={ () => this.switchNight() }>
-                    <p>Ночь <img src='vectors/night.svg'></img></p>
-                </div>
-                <div id="day" className={this.state.class.activeDay} onClick={ () => this.switchDay() }>
-                    <p>День <img src='vectors/day.svg'></img></p>
-                </div>
-            </div>
+        return (
+        <Provider store={store}>
+            <NightDay />
+        </Provider>
         )
     }
-}
+} 
 
-export default NightDay;
+export default ThemeButton
