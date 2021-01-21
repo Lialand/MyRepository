@@ -1,8 +1,8 @@
 import React from 'react'
 
-export default function Whoami(props) {
+export default function Whoami() {
     return (
-        <div class="changeyourrole">
+        <div className="changeyourrole">
             <h3>
                 Кто ты?
             </h3>

@@ -2,14 +2,14 @@ import React from 'react'
 
 export default function LogIn(props) {
     return (
-        <div class={props.disp}>
-            <div class="log_in">
+        <div className={props.disp}>
+            <div className="log_in">
                 <p>
                     Введите логин и пароль
                 </p>
-                <div class="loginandpass">
-                    <input class="inputfield"></input>
-                    <input class="inputfield"></input>
+                <div className="loginandpass">
+                    <input className="inputfield"></input>
+                    <input className="inputfield"></input>
                 </div>
             </div>
         </div>

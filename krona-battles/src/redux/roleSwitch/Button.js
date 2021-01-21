@@ -1,19 +1,20 @@
-import React from 'react';
+import React from 'react'
+import Button from './maincomp'
+
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import NightDay from './redux/maincomp'
-import { rootReducer } from './redux/reducer'
+import { rootReducer } from './reducer'
 
 const store = createStore(rootReducer);
 
-class ThemeButton extends React.Component{
+class RoleButton extends React.Component{
     render() {
         return (
         <Provider store={store}>
-            <NightDay />
+            <Button />
         </Provider>
         )
     }
 } 
 
-export default ThemeButton
+export default RoleButton

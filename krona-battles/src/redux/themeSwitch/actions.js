@@ -1,4 +1,4 @@
-import { DAY_SWITCHER, NIGHT_SWITCHER } from './types'
+import { DAY_SWITCHER, NIGHT_SWITCHER } from '../types'
 
 export const switchDay = () => {
     return {
