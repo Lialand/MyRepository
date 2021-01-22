@@ -1,5 +1,6 @@
 import RoleButton from './redux/roleSwitch/Button'
 import ThemeButton from './redux/themeSwitch/NightDay'
+import WorkUpload from './components/WorkUpload'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -15,4 +16,13 @@ ReactDOM.render(
         </Switch>
     </BrowserRouter>,
     document.getElementById("rendPart")
+)
+
+ReactDOM.render(
+    <BrowserRouter>
+        <Switch>
+            <Route path="/public/battle_upload.html" component={WorkUpload} />
+        </Switch>
+    </BrowserRouter>,
+    document.getElementById("uploadwork")
 )

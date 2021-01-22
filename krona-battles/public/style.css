@@ -217,6 +217,10 @@ a.enterbutton + a {
   display: none;
 }
 
+.novision {
+  visibility: hidden;
+}
+
 .loginandpass {
   display: flex;
   flex-direction: row;
@@ -558,7 +562,7 @@ section.battleupload a {
   text-decoration: none;
 }
 
-.uploadwork {
+.uploadwork, .uploadwork > div:first-child {
   display: flex;
 }
 .uploadwork .workuploadwindow {
@@ -568,6 +572,7 @@ section.battleupload a {
   border: dashed 3px rgba(255, 255, 255, 0.2);
   border-radius: 5px;
   margin: 44px 0 0 358px;
+  cursor: pointer;
 }
 .uploadwork .workuploadwindow img {
   margin-top: 226px;
@@ -582,14 +587,22 @@ section.battleupload a {
   font-size: 16px;
   font-weight: 600;
 }
-.uploadwork .workuploadwindow p:first-child {
+.uploadwork .workuploadwindow p:first-child,
+.uploadwork .workuploadwindow p.downloaded {
   margin-top: 25px;
   font-family: "Raleway";
   font-size: 24px;
   font-weight: 600;
-  color: "";
+  color: "white";
 }
-.uploadwork .workuploadwindow p:last-child {
+.uploadwork .workuploadwindow p.downloaded {
+  margin-top: 300px;
+  font-family: "Raleway";
+  font-size: 24px;
+  font-weight: 600;
+  color: white;
+}
+.uploadwork .workuploadwindow div p:last-child {
   margin-top: 20px;
   opacity: 0.3;
 }
@@ -625,8 +638,11 @@ section.battleupload a {
   font-size: 16px;
   font-weight: 400;
   color: #565656;
-  padding: 20px 220px 342px 20px;
+  padding: 20px;
   border: none;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  resize: none;
 }
 .uploadwork .inputfield:focus {
   border: 1px solid white;
@@ -649,6 +665,49 @@ section.battleupload a {
 }
 .uploadwork .flexrow .button.active p {
   color: black;
+}
+/****/
+
+.input__file {
+  opacity: 0;
+  visibility: hidden;
+  position: absolute;
+}
+
+.modal__window {
+  position: absolute;
+  display: flex;
+  z-index: 9999;
+  margin: auto auto auto 50%;
+  text-align: center;
+  font-family: "Raleway";
+  font-size: 32px;
+  font-weight: 600;
+  color: white;
+  background: rgb(146, 146, 146);
+  border-radius: 5px;
+  width: 600px;
+  height: 300px;
+  padding-top: 30px;
+  opacity: 0;
+  transition: opacity 0.7s;
+  visibility: hidden;
+}
+.modal__window-ok {
+  position: absolute;
+  border-radius: 5px;
+  width: 200px;
+  height: 70px;
+  background: rgb(0, 0, 0);
+  text-align: center;
+  line-height: 70px;
+  bottom: 20px;
+  right: 20px;
+  visibility: inherit;
+}
+.modal__window-visibility {
+  opacity: 1;
+  visibility: visible;
 }
 
 /*# sourceMappingURL=style.css.map */
