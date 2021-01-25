@@ -22,7 +22,8 @@ export default class Upload extends React.Component {
                 <div className={this.state.display}>  
                     <img src="vectors/upload_1part.svg" />
                     <img src="vectors/upload_2part.svg" />
-                    <input name="file" type="file" id="input__file" className="input__file" />
+                    <input name="file" type="file" id="input__file" className="input__file"
+                    onChange={ () => { files=this.files } } />
                     <div>
                         <p>Перетащите изображение</p>
                         <p>или кликните, чтобы выбрать файл</p>

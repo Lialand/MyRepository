@@ -1,0 +1,9 @@
+{
+    "base": [
+        {
+            "type": "react",
+            "library": "redux",
+            "for": "krona"
+        }
+    ]
+}

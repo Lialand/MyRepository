@@ -16,13 +16,39 @@ ReactDOM.render(
         </Switch>
     </BrowserRouter>,
     document.getElementById("rendPart")
-)
+);
 
-ReactDOM.render(
-    <BrowserRouter>
-        <Switch>
-            <Route path="/public/battle_upload.html" component={WorkUpload} />
-        </Switch>
-    </BrowserRouter>,
-    document.getElementById("uploadwork")
-)
+if (document.title == 'uploadbattle') {
+    ReactDOM.render(
+        <BrowserRouter>
+            <Switch>
+                <Route path="/public/battle_upload.html" component={ WorkUpload } />
+            </Switch>
+        </BrowserRouter>,
+        document.getElementById("uploadwork")
+    );
+}
+
+// ajax tester
+
+// window.addEventListener( "DOMContentLoaded", () => {
+    
+//     function req() {
+//         const request = new XMLHttpRequests();
+//         request.open("GET", "http://localhost:8000/src/base.json");
+//         request.setRequestHeader("Content-type", "application/json; charset=utf-8");
+//         request.send();
+//         request.addEventListener("readystatechange", () => {
+//             if (request.readyState === 4 && request.status == 200) {
+//                  let data = JSON.parse(request.response);
+//                 console.log(data);
+//             }
+//             else {
+//                 console.error('Что-то не так...');
+//             }
+//         })
+//     }
+
+//     req();
+
+// })

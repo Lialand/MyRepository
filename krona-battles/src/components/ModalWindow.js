@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-import TextArea from './TextArea'
 import { isTapped } from './TextArea'
 import ButtonsForm from './ButtonsForm'
 import Modal from './Modal'
-
-export default function Form() {
+import ReactDOM from 'react-dom'
+/* //////////////////////////////////// NOT USABLE
+export default function ModalWindow() {
     let [vision, setVision] = useState('modal__window');
     let [text, setTextModal] = useState('');
     let [cancel, setNodisplay] = useState('modal__window-cancel');
@@ -30,24 +30,12 @@ export default function Form() {
         document.body.removeAttribute('style');
     }
 
-    return(
-        <>
-            <Modal vision={vision} exit={ exitModal } 
+    ReactDOM.render(
+        <Modal vision={vision} exit={ exitModal } 
                 text={text} cancel={cancel} 
-                blockModal={blockModal} />
-            <div className="workinfo">
-                <div className="workinfo_heading">
-                    <p>Описание работы</p>
-                    <p> 
-                        Расскажите о вашей работе, 
-                        опишите использумые решения и приёмы,
-                        обоснуйте свой дизайн.
-                    </p>
-                </div>
-                <TextArea />
-                <ButtonsForm tap={ messageTap } />
-            </div>
-        </>
+                blockModal={blockModal} />,
+        document.getElementById('block__modal')
     )
-}
 
+    const BF = <ButtonsForm tap={ messageTap } />
+}*/

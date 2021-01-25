@@ -1,6 +1,6 @@
 import React from 'react'
 
-let isTapped = ''
+let isTapped = '';
 
 export default class TextArea extends React.Component {
     constructor(props) {
