@@ -29,7 +29,7 @@ if (document.title == 'uploadbattle') {
     );
 }
 
-// ajax tester
+//ajax tester
 
 // window.addEventListener( "DOMContentLoaded", () => {
     

@@ -9,11 +9,11 @@ module.exports = {
         publicPath: '/public/',
         filename: "bundle.js"       // название создаваемого файла
     },
-    devServer: {
-        open: true,
-        openPage: 'public/main.html',
-        port: 8000
-   },
+//     devServer: {
+//         open: true,
+//         openPage: 'public/main.html',
+//         port: 8000
+//    },
     module:{
         rules:[   //загрузчик для jsx
             {
