@@ -1,4 +1,5 @@
 import React from 'react'
+let img;
 
 export default class Upload extends React.Component {
     constructor(props) {
@@ -6,20 +7,20 @@ export default class Upload extends React.Component {
         this.state = {
             display: '',
             text: '',
-            vision: 'nodisplay',
+            vision: 'nodisplay'
         }                 
         this.scanImg = this.scanImg.bind(this)   
     }
 
+    //this is loading data on server
     async scanImg(event) {
+        const url = 'http://127.0.0.1:3000/battle_upload.html/image';
+
         let file = event.target.files[0];
         let checkErr;
-        let img;
-
-        var data = new FormData();
-        data.append('image: ', img);
 
         let checkLoad = new Promise( (resolve, reject) => {
+            
             let reader = new FileReader();
             reader.readAsDataURL(file);
 
@@ -35,8 +36,6 @@ export default class Upload extends React.Component {
                 text: 'Изображение загружено',
                 vision: 'downloaded'
                 });
-                var data = new FormData();
-                data.append('image: ', JSON.stringify(img));
                 checkErr = false;
             },
             error => {
@@ -46,18 +45,20 @@ export default class Upload extends React.Component {
         ).then(
             () => {
                 if (!checkErr) {
-                    fetch('./base.json', {
+                    fetch(url, {
                         method: 'PUT',
+                        body: img,
                         headers: {
-                            'Content-Type': 'application/json; charset=utf-8'
-                        },
-                        body: data
-                    });
+                            'Content-Type': 'application/json'
+                        }
+                    }
+                    );
                     console.log('Downloaded img', typeof(img));
                 }
             }
         )
     }
+    //end of loading
 
     render() {
         return(

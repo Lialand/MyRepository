@@ -2,13 +2,22 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-const server = http.createServer( (req, res) => {
+const server = http.createServer( function(req, res) {
 
-    let filePath = path.join(__dirname, '../public', req.url === '/' ? 'main.html' : req.url)
-    const ext = path.extname(filePath)
-    let contentType = 'text/html'
+    let filePath;
 
-    let base = path.join(__dirname, './', req.url === '/base.json' ? 'base.json' : req.url)
+    if (req.url == '/battle_upload.html/image') {
+        filePath = path.join(__dirname, '../public', 'main.html');
+        console.log(req.body);
+    }
+    else if (req.url == '/')
+        filePath = path.join(__dirname, '../public', 'main.html');
+    else
+        filePath = path.join(__dirname, '../public', req.url);
+
+    const ext = path.extname(filePath);
+    let contentType = 'text/html';
+    console.log(req.url === '/battle_upload.html/image');
 
     switch (ext) {
         case '.css':
@@ -27,22 +36,16 @@ const server = http.createServer( (req, res) => {
             contentType = 'text/html'
     }
 
-    if (!ext) {
-        filePath += '.html'
-    }
-
-    console.log(base);
-
-    fs.readFile(filePath || base, (err, content) => {
-        if (err) {
+    fs.readFile(filePath, (error, data) => {
+        if (error) {
             fs.readFile( path.join(__dirname, '../public', 'error.html'), (err, data) => {
                 if (err) {
                     res.writeHead(500)
                     res.end('Error')
                 }
                 else {
-                    res.writeHead(200, {
-                        'Content-Type': 'text/html'
+                    res.writeHead(404, {
+                        'Content-Type': 'text/html'  //special checker for errors
                     })
                     res.end(data)
                 }
@@ -51,14 +54,10 @@ const server = http.createServer( (req, res) => {
         else {
             res.writeHead(200, {
                 'Content-Type': contentType
-            })
-            res.end(content);
+            });
+            res.end(data);
         }
     })
-
-    // fs.readFile(base, (err, content) => {
-    //     res.end(content)
-    // })
 })
 
 const PORT = process.env.PORT || 3000
