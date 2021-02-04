@@ -551,7 +551,7 @@ section.battleupload {
     }
 } 
 
-.uploadwork {
+.uploadwork, .uploadwork > div:first-child {
     display: flex;
     .workuploadwindow {
         @include w-h(845px, 615px);
@@ -559,6 +559,7 @@ section.battleupload {
         border: dashed 3px rgba(255, 255, 255, 0.2);
         border-radius: 5px;
         margin: 44px 0 0 358px;
+        cursor: pointer;
         img {
             margin-top: 226px;
         }
@@ -570,6 +571,10 @@ section.battleupload {
             margin-top: 7px; /**/
             font-size: 16px;
             font-weight: 600;
+            .downloaded {
+                margin-top: 300px;
+                @include fonter('Raleway', 24px, 600, white);
+            }
         }
         p:first-child {
             margin-top: 25px;
@@ -604,8 +609,10 @@ section.battleupload {
     .inputfield {
         background: inherit;
         @include fonter(Raleway, 16px, 400, #565656);
-        padding: 20px 220px 342px 20px;
+        @include w-h(-webkit-fill-available, -webkit-fill-available);
+        padding: 20px;
         border: none;
+        resize: none;
     }
     .inputfield:focus {
         border: 1px solid white;
@@ -631,4 +638,57 @@ section.battleupload {
             color: black;
         }
     }
+}
+
+.input__file {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+}
+
+.block__modal {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: -1;
+    .modal__window-visibility {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
+    .modal__window {
+        position: absolute;
+        left: 40%;
+        top: 25%;
+        text-align: center;
+        @include fonter(Raleway, 32px, 600,  white);
+        background: rgb(27, 26, 26);
+        border-radius: 5px;
+        @include w-h(600px, 300px);
+        padding: 30px 25px 0 25px;
+        opacity: 0;
+        transition: opacity 0.5s;
+        visibility: hidden;
+        z-index: 2;
+        .buttons_modal {
+            @include dis-dir(flex, row-reverse);
+            margin-top: 24%;
+            .modal__window-ok, .modal__window-cancel {
+                cursor: pointer;
+                border-radius: 5px;
+                margin-right: 4%;
+                font-size: 24px;
+                @include w-h(130px, 50px);
+                background: rgb(0, 0, 0);
+                text-align: center;
+                line-height: 50px;
+                visibility: inherit;
+            }
+        }
+    }
+}
+.block__modal.opacity {
+    background-color: rgba(255, 255, 255, 0.2);
 }

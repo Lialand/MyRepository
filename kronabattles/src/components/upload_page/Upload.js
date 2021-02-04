@@ -1,5 +1,7 @@
 import React from 'react'
-let img;
+
+let img, imgExt;
+let picUploaded = false;
 
 export default class Upload extends React.Component {
     constructor(props) {
@@ -23,8 +25,35 @@ export default class Upload extends React.Component {
             
             let reader = new FileReader();
             reader.readAsDataURL(file);
+            reader.fileName = file.name;
 
-            reader.onload = () => resolve(console.log('Document UPLOADED:', reader.result), img = reader.result);
+            reader.onload = (readerEvt) => {
+                img = {
+                    name: readerEvt.target.fileName,
+                    base64: reader.result,
+                    test: new Image()
+                };
+
+                let loadImg = new Promise( (resolve, reject) => {
+                    img.test.onload = () => {
+                        resolve(
+                            console.log('async'),
+                            img.test.src = img.base64.trim(),
+                            img.width = img.test.naturalWidth
+                        )
+                    }
+                })
+
+                loadImg.then( result => {
+                    imgExt = img.name.split('.').pop();
+                    
+                    if (imgExt == 'png' || imgExt == 'jpg' || imgExt == 'jpeg' && img.width >= 1600) 
+                        resolve(console.log('Document UPLOADED:', img.name));
+                    else
+                        reject();
+                    }
+                )
+            };
 
             reader.onerror = () => reject(console.log(reader.error));
         })  
@@ -32,13 +61,21 @@ export default class Upload extends React.Component {
         checkLoad.then(
             result => {
                 this.setState({
-                display: 'nodisplay', 
-                text: 'Изображение загружено',
-                vision: 'downloaded'
+                    display: 'nodisplay', 
+                    text: 'Изображение загружено',
+                    vision: 'downloaded'
                 });
                 checkErr = false;
             },
             error => {
+                setTimeout(
+                        this.setState({
+                        display: 'nodisplay', 
+                        text: 'Загрузка отклонена (неверный формат)',
+                        vision: 'downloaded'
+                    }),
+                    1000
+                );
                 console.log(Error);
                 checkErr = true;
             }
@@ -46,14 +83,19 @@ export default class Upload extends React.Component {
             () => {
                 if (!checkErr) {
                     fetch(url, {
-                        method: 'PUT',
-                        body: img,
+                        method: 'POST',
+                        body: img.base64, 
                         headers: {
                             'Content-Type': 'application/json'
                         }
                     }
                     );
-                    console.log('Downloaded img', typeof(img));
+                    console.log('Downloaded img', img.width);
+                    picUploaded = true;
+                }
+                else {
+                    console.log('It is bad type');
+                    picUploaded = false;
                 }
             }
         )
@@ -78,3 +120,5 @@ export default class Upload extends React.Component {
         )
     }
 }
+
+export { picUploaded }

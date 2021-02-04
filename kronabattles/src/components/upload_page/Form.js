@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import TextArea from './TextArea'
-import { isTapped } from './TextArea'
+import TextArea, { isTapped } from './TextArea'
 import ButtonsForm from './ButtonsForm'
 import Modal from './Modal'
+import { picUploaded } from './Upload'
 
 export default function Form() {
     let [vision, setVision] = useState('modal__window');
@@ -16,6 +16,10 @@ export default function Form() {
         document.body.style.overflow = 'hidden';
         if (isTapped == '') {   
             setTextModal(text = 'Внимание! Вы не набрали ни единого символа!');
+            setNodisplay(cancel += ' nodisplay');
+        }
+        else if (!picUploaded) {
+            setTextModal(text = 'Вы не загрузили изображение! (Или выбран неверный формат)');
             setNodisplay(cancel += ' nodisplay');
         }
         else {

@@ -1,6 +1,7 @@
 import RoleButton from './redux/roleSwitch/Button'
 import ThemeButton from './redux/themeSwitch/NightDay'
-import WorkUpload from './components/WorkUpload'
+import WorkUpload from './components/upload_page/WorkUpload'
+import BattlesWork from './components/battles_page/BattlesWork'
 
 import React from 'react'
 import ReactDOM from 'react-dom'
@@ -26,5 +27,16 @@ if (document.title == 'uploadbattle') {
             </Switch>
         </BrowserRouter>,
         document.getElementById("uploadwork")
+    );
+}
+
+if (document.title == 'onebattle') {
+    ReactDOM.render(
+        <BrowserRouter>
+            <Switch>
+                <Route path="/battle.html" component={ BattlesWork } />
+            </Switch>
+        </BrowserRouter>,
+        document.getElementById("content_battles")
     );
 }
