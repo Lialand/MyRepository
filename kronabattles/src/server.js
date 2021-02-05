@@ -19,9 +19,9 @@ const server = http.createServer( function(req, res) {
     if (req.url == '/battle_upload.html/image') {
         let body = '';
         req.on('data', chunk => {
-            body += chunk.toString();
+            body += JSON.parse(chunk);
             let base64Image = body.split(';base64,').pop();
-            console.log(typeof(body));
+            console.log(body);
             fs.writeFile('./src/images/image.jpg', base64Image, {encoding: 'base64'}, function(err) {    //this place is for working with uploading picture
                 console.log('File created');
             });

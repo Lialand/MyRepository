@@ -4,7 +4,7 @@ body, html {
     transition: margin-top 1s;
 }
 
-@media (min-width: 540px) {
+@media (min-width: 542px) {
     section.contentwrappermob {
         display: none;
     }
@@ -66,12 +66,12 @@ h3 {
 
 @font-face {
     font-family: archivo-black-regular;
-    src: url(archivo-black-regular.ttf);
+    src: url(fonts/archivo-black-regular.ttf);
 }
 
 @font-face {
     font-family: Inter;
-    src: url(fontInter/Inter-SemiBold-slnt=0.ttf);
+    src: url(fonts/Inter-SemiBold-slnt=0.ttf);
 }
 
 .contacts {
@@ -266,7 +266,7 @@ ul.services li {
 
 ul.services li::after {
     content: url(slashes/1.png);
-    margin: 20px;
+    margin: 0 20px 0 20px;
 }
 
 div.behance li::after {
@@ -383,6 +383,7 @@ div.director_photo {
 
 .picrounder, .picrounder_imagein {
     border-radius: 50%;
+    cursor: pointer;
 }
 
 .picrounder_imagein {
@@ -418,7 +419,7 @@ div.director_photo {
     height: 484px;
 }
 
-@media (max-width: 1390px) {
+@media (max-width: 1390px) and (min-width: 541px) {
 
     .contacts_item {
         font-size: 15px;
@@ -555,7 +556,7 @@ div.director_photo {
 
 }
 
-@media (max-width: 540px) {
+@media (max-width: 541px) {
     
     section.contentwrappercomp {
         display: none;
@@ -618,10 +619,14 @@ div.director_photo {
         font-size: 30px;    
     }
 
+    ul.services li::after {
+        margin: 0 5px 0 5px;
+    }
+
     section.contentwrappermob h1, div.krona h1.content_block_krona {
         padding: 0;
         margin: 0 15px 40px 15px;
-        font-size: 86.1px;
+        font-size: 52px;
         line-height: 68.28px;
         word-break: break-all;
     }
@@ -660,6 +665,7 @@ div.director_photo {
 
     div.krona h1.content_block_krona  {
 	color: #000000;
+    line-height: 60px;
 	text-shadow: 
 		-0   -1px 0   #FFFFFF,
 		 0   -1px 0   #FFFFFF,
@@ -709,6 +715,14 @@ div.director_photo {
         margin-top: 0;
     }
 
+    h4 {
+        line-height: 40px;
+    }
+
+    .krona h4 {
+        margin-bottom: 30px;
+    }
+
     footer h4 {
         font-size: 14px;
         opacity: 0.5;
@@ -721,10 +735,10 @@ div.director_photo {
         margin-top: auto;
         margin-bottom: auto;
     }
-
+/* 
     footer.web .contacts h4 {
         margin-top: 15px;
-    }
+    } */
 
     h4#badheading {
         margin-bottom: 0;

@@ -34,25 +34,18 @@ export default class Upload extends React.Component {
                     test: new Image()
                 };
 
-                let loadImg = new Promise( (resolve, reject) => {
-                    img.test.onload = () => {
-                        resolve(
-                            console.log('async'),
-                            img.test.src = img.base64.trim(),
-                            img.width = img.test.naturalWidth
-                        )
-                    }
-                })
+                img.test.onload = () => {
+                    console.log('async'),
+                    img.test.src = img.base64.trim(),
+                    img.width = img.test.naturalWidth
+                }
 
-                loadImg.then( result => {
-                    imgExt = img.name.split('.').pop();
-                    
-                    if (imgExt == 'png' || imgExt == 'jpg' || imgExt == 'jpeg' && img.width >= 1600) 
-                        resolve(console.log('Document UPLOADED:', img.name));
-                    else
-                        reject();
-                    }
-                )
+                imgExt = img.name.split('.').pop();
+                
+                if (imgExt == 'png' || imgExt == 'jpg' || imgExt == 'jpeg' && img.width >= 1600) 
+                    resolve(console.log('Document UPLOADED:', img.name));
+                else
+                    reject();
             };
 
             reader.onerror = () => reject(console.log(reader.error));
@@ -84,7 +77,7 @@ export default class Upload extends React.Component {
                 if (!checkErr) {
                     fetch(url, {
                         method: 'POST',
-                        body: img.base64, 
+                        body: JSON.stringify(img), 
                         headers: {
                             'Content-Type': 'application/json'
                         }

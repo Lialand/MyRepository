@@ -7,7 +7,7 @@ export default function reactor() {
         <Push />,
         document.getElementById("imagecreator"),
         function() { 
-            console.log("Элемент срендерился");
+            console.log("Images have been compiled");
         }
     )
 }
