@@ -18,12 +18,16 @@ export default class Upload extends React.Component {
     async scanImg(event) {
         const url = 'http://127.0.0.1:3000/battle_upload.html/image';
 
-        let file = event.target.files[0];
-        let checkErr;
+        let file, spec;
+        spec = file = event.target.files[0];
+        let checkErr;   
+        let reader;
+
+        let formData;
 
         let checkLoad = new Promise( (resolve, reject) => {
             
-            let reader = new FileReader();
+            reader = new FileReader();
             reader.readAsDataURL(file);
             reader.fileName = file.name;
 
@@ -34,16 +38,19 @@ export default class Upload extends React.Component {
                     test: new Image()
                 };
 
+                formData = new FormData();
+                formData.append("myFile", file);
+
                 img.test.onload = () => {
                     console.log('async'),
                     img.test.src = img.base64.trim(),
-                    img.width = img.test.naturalWidth
-                }
+                    imgWidth = img.test.naturalWidth
+                };
 
                 imgExt = img.name.split('.').pop();
                 
                 if (imgExt == 'png' || imgExt == 'jpg' || imgExt == 'jpeg' && img.width >= 1600) 
-                    resolve(console.log('Document UPLOADED:', img.name));
+                    resolve(console.log('Document UPLOADED:', formData));
                 else
                     reject();
             };
@@ -77,13 +84,13 @@ export default class Upload extends React.Component {
                 if (!checkErr) {
                     fetch(url, {
                         method: 'POST',
-                        body: JSON.stringify(img), 
+                        body: formData, 
                         headers: {
-                            'Content-Type': 'application/json'
+                            'Content-Type': 'multipart/form-data'
                         }
                     }
                     );
-                    console.log('Downloaded img', img.width);
+                    console.log('Downloaded img', formData);
                     picUploaded = true;
                 }
                 else {

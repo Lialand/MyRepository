@@ -17,14 +17,16 @@ const server = http.createServer( function(req, res) {
     let contentType = 'text/html';
 
     if (req.url == '/battle_upload.html/image') {
-        let body = '';
+        let name, URL;
         req.on('data', chunk => {
-            body += JSON.parse(chunk);
-            let base64Image = body.split(';base64,').pop();
-            console.log(body);
-            fs.writeFile('./src/images/image.jpg', base64Image, {encoding: 'base64'}, function(err) {    //this place is for working with uploading picture
-                console.log('File created');
-            });
+            console.log(chunk);
+            // chunk = JSON.parse(chunk);
+            // name = chunk.name.toString();
+            // URL = chunk.base64.toString();
+            // let base64Image = URL.split(';base64,').pop();
+            // fs.writeFile('./src/images/'+name, base64Image, {encoding: 'base64'}, function(err) {    //this place is for working with uploading picture
+            //     console.log('File created');
+            // });
         });
         req.on('end', () => {  
             res.end('ok');
