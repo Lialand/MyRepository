@@ -2,15 +2,6 @@ const http = require('http')
 const fs = require('fs')
 const path = require('path')
 
-/*import * as http from 'http'
-import * as fs from 'fs'
-import path, { dirname } from 'path'
-import { fileURLToPath } from 'url'
-import { imgName } from './components/Upload'
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);*/
-
 const server = http.createServer( function(req, res) {
 
     let filePath;
@@ -19,8 +10,8 @@ const server = http.createServer( function(req, res) {
     if (req.url == '/battle_upload.html/image') {
         let name, URL;
         req.on('data', chunk => {
-            console.log(chunk);
-            // chunk = JSON.parse(chunk);
+            let data = chunk;
+            console.log(data);
             // name = chunk.name.toString();
             // URL = chunk.base64.toString();
             // let base64Image = URL.split(';base64,').pop();
