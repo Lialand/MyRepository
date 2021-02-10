@@ -10,7 +10,7 @@ const server = http.createServer( function(req, res) {
     if (req.url == '/battle_upload.html/image') {
         let name, URL;
         req.on('data', chunk => {
-            let data = chunk;
+            let data = chunk.toString();
             console.log(data);
             // name = chunk.name.toString();
             // URL = chunk.base64.toString();

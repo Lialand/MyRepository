@@ -19,11 +19,20 @@ module.exports = {
                     presets: ["@babel/preset-env", "@babel/preset-react"]    // используемые плагины
                 }
             },
-            {
-                test: /\.(scss|css)$/,
-                use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
-            },
         ]
     },
-}
-
+    // plugins: [
+    //     new webpack.optimize.UglifyJsPlugin({
+    //         beautify: false,
+    //         mangle: {
+    //           screw_ie8: true,
+    //           keep_fnames: true
+    //         },
+    //         compress: {
+    //           screw_ie8: true,
+    //           drop_console: true
+    //         },
+    //         comments: false,
+    //     })
+    // ]
+};

@@ -406,7 +406,7 @@ section.sidebar menu li:hover,
     }
 }
 
-#theme {
+#rendPart {
     > div {
         display: flex;
         align-items: center;
@@ -559,7 +559,10 @@ section.battleupload {
         border: dashed 3px rgba(255, 255, 255, 0.2);
         border-radius: 5px;
         margin: 44px 0 0 358px;
-        cursor: pointer;
+        > label, > label > div{
+            @include w-h(845px, 615px);
+            cursor: pointer;
+        }
         img {
             margin-top: 226px;
         }
@@ -571,10 +574,6 @@ section.battleupload {
             margin-top: 7px; /**/
             font-size: 16px;
             font-weight: 600;
-            .downloaded {
-                margin-top: 300px;
-                @include fonter('Raleway', 24px, 600, white);
-            }
         }
         p:first-child {
             margin-top: 25px;
@@ -583,6 +582,10 @@ section.battleupload {
         p:last-child {
             margin-top: 20px;
             opacity: 0.3;
+        }
+        p.downloaded {
+            margin-top: 300px;
+            @include fonter('Raleway', 24px, 600, white);
         }
     }
     .workinfo {
@@ -646,6 +649,12 @@ section.battleupload {
     position: absolute;
 }
 
+.modal__window-visibility {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1;
+}
+
 .block__modal {
     position: fixed;
     top: 0;
@@ -653,11 +662,6 @@ section.battleupload {
     left: 0;
     bottom: 0;
     z-index: -1;
-    .modal__window-visibility {
-        opacity: 1;
-        visibility: visible;
-        z-index: 1;
-    }
     .modal__window {
         position: absolute;
         left: 40%;
@@ -688,7 +692,13 @@ section.battleupload {
             }
         }
     }
+    .modal__window.modal__window-visibility {
+        opacity: 1;
+        visibility: visible;
+        z-index: 1;
+    }
 }
 .block__modal.opacity {
     background-color: rgba(255, 255, 255, 0.2);
+    z-index: 0;
 }

@@ -7,42 +7,36 @@
   cursor: pointer;
   height: 49px;
   margin-top: 30px;
-  line-height: 49px;
-}
+  line-height: 49px; }
 
 body {
-  background-color: black;
-}
+  background-color: black; }
 
 body, html {
   margin: 0;
   padding: 0;
-  cursor: default;
-}
+  cursor: default; }
 
 @font-face {
   font-family: "Raleway";
-  src: url("fonts/Raleway/Raleway-Light.ttf");
-}
+  src: url("fonts/Raleway/Raleway-Light.ttf"); }
+
 @font-face {
   font-family: "Didact Gothic";
-  src: url("fonts/DidactGothic.ttf");
-}
+  src: url("fonts/DidactGothic.ttf"); }
+
 .firstscreen_viewer {
-  display: flex;
-}
+  display: flex; }
 
 .contactpart {
   width: 99vw;
   height: 1080px;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
 h1, h2, h3, h4, p {
   margin: 0;
   padding: 0;
-  font-feature-settings: 'pnum' on, 'lnum' on;
-}
+  font-feature-settings: 'pnum' on, 'lnum' on; }
 
 h1 {
   font-family: "Didact Gothic";
@@ -50,129 +44,106 @@ h1 {
   font-weight: 400;
   color: white;
   line-height: 150px;
-  padding: 170px 0 0 197px;
-}
+  padding: 170px 0 0 197px; }
 
 h2 {
   font-family: Raleway;
   font-size: 60px;
   font-weight: 400;
   color: white;
-  padding-top: 229px;
-}
+  padding-top: 229px; }
 
 .leftcolumn, .rightcolumn {
   display: block;
-  width: 100%;
-}
+  width: 100%; }
 
 .loginandpass, .flexrow {
   display: flex;
-  flex-direction: row;
-}
-.loginandpass .button.active, .flexrow .button.active {
-  background: white;
-}
-.loginandpass .button.active p, .flexrow .button.active p {
-  color: black;
-}
+  flex-direction: row; }
+  .loginandpass .button.active, .flexrow .button.active {
+    background: white; }
+    .loginandpass .button.active p, .flexrow .button.active p {
+      color: black; }
 
 .buttons {
   display: flex;
-  flex-direction: row;
-}
-.buttons div {
-  font-family: Raleway;
-  font-size: "";
-  font-weight: 400;
-  color: white;
-  background: #181818;
-  padding-left: 30px;
-  padding-right: 30px;
-}
-.buttons div:last-child {
-  margin-left: 15px;
-}
-.buttons .active {
-  border: 1px solid #565656;
-  opacity: 0.5;
-}
+  flex-direction: row; }
+  .buttons div {
+    font-family: Raleway;
+    font-size: "";
+    font-weight: 400;
+    color: white;
+    background: #181818;
+    padding-left: 30px;
+    padding-right: 30px; }
+  .buttons div:last-child {
+    margin-left: 15px; }
+  .buttons .active {
+    border: 1px solid #565656;
+    opacity: 0.5; }
 
 .buttons + p {
   font-size: 16px;
   opacity: 0.9;
   margin-top: 30px;
   padding-right: 520px;
-  line-height: 30px;
-}
+  line-height: 30px; }
 
 .log_in {
   display: flex;
   flex-direction: column;
-  margin-top: 60px;
-}
-.log_in .inputfield {
-  width: 315px;
-  height: 79px;
-  display: block;
-  border: 1px solid #565656;
-  color: #565656;
-  background: black;
-  border-radius: 5px;
-  margin-top: 30px;
-  font-size: 16px;
-  padding: 0 30px;
-}
-.log_in .inputfield:last-child {
-  margin-left: 15px;
-}
-.log_in .inputfield:focus {
-  border: 1px solid white;
-  color: white;
-}
+  margin-top: 60px; }
+  .log_in .inputfield {
+    width: 315px;
+    height: 79px;
+    display: block;
+    border: 1px solid #565656;
+    color: #565656;
+    background: black;
+    border-radius: 5px;
+    margin-top: 30px;
+    font-size: 16px;
+    padding: 0 30px; }
+  .log_in .inputfield:last-child {
+    margin-left: 15px; }
+  .log_in .inputfield:focus {
+    border: 1px solid white;
+    color: white; }
 
 p, .button, .enterbutton, span {
   font-family: Raleway;
   font-size: "";
   font-weight: 500;
-  color: white;
-}
+  color: white; }
 
 h3 {
   font-family: Raleway;
   font-size: 30px;
   font-weight: 600;
-  color: white;
-}
+  color: white; }
 
-section.firstscreen_viewer #rendPart .log_in p {
-  margin-top: 0;
-}
-section.firstscreen_viewer #rendPart .log_in p:first-child {
-  font-size: 30px;
-}
-section.firstscreen_viewer #rendPart .flexrow a {
+#changePart .log_in p {
+  margin-top: 0; }
+
+#changePart .log_in p:first-child {
+  font-size: 30px; }
+
+#changePart .flexrow a {
   font-family: Raleway;
   font-size: "";
   font-weight: "";
   color: white;
   line-height: 79px;
-  margin-left: 43px;
-}
-section.firstscreen_viewer #rendPart .flexrow a:first-child {
-  margin-left: 0;
-}
-section.firstscreen_viewer #rendPart .flexrow p:first-child {
-  margin-top: 68px;
-} 
-section.firstscreen_viewer #rendPart h3 {
+  margin-left: 43px; }
+  #changePart .flexrow a:first-child {
+    margin-left: 0; }
+
+#changePart h3 {
   font-weight: 400;
-  margin-top: 60px;
-}
+  margin-top: 60px; }
 
 #viewer a:first-child {
-  margin-left: 0;
-}
+  margin-left: 0; }
 
 .enterbutton {
   width: 200px;
@@ -185,16 +156,13 @@ section.firstscreen_viewer #rendPart h3 {
   border-radius: 5px;
   background: #181818;
   cursor: pointer;
-  display: inline-block;
-}
+  display: inline-block; }
 
 a.enterbutton, a.enterbutton:active {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 a.enterbutton + a {
-  padding-top: 50px;
-}
+  padding-top: 50px; }
 
 .logwithhelp {
   width: 60px;
@@ -202,197 +170,155 @@ a.enterbutton + a {
   margin: 50px 0 0 20px;
   background: #181818;
   border-radius: 50%;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 .logwithhelp + .logwithhelp + .logwithhelp .logwithhelp_icon {
-  padding-top: 6px;
-}
+  padding-top: 6px; }
 
 .logwithhelp_icon {
-  margin: 18px;
-}
+  margin: 18px; }
 
 .nodisplay {
-  display: none;
-}
-
-.novision {
-  visibility: hidden;
-}
+  display: none; }
 
 .loginandpass {
   display: flex;
-  flex-direction: row;
-}
+  flex-direction: row; }
 
 header {
   border-bottom: solid 1px #181818;
-  margin-left: 302px;
-}
-header h3, header .flexcolumn {
-  padding: 48px 20px 47px 30px;
-}
-header .flexcolumn {
-  padding-left: 30px;
-  padding-right: 0;
-}
-header .flexcolumn p {
-  font-weight: 600;
-}
-header .flexcolumn p:first-child {
-  font-size: 12px;
-  opacity: 0.4;
-}
-header .button {
-  width: 221px;
-  background: white;
-  border: none;
-  margin-top: 41px;
-  margin-left: auto;
-  margin-right: 66px;
-  overflow: hidden;
-}
-header .button p {
-  color: black;
-  font-weight: 500;
-}
-header .backbutton {
-  display: inline-block;
-  cursor: pointer;
-  background: #181818;
-  width: 40px;
-  height: 40px;
-  text-align: center;
-  border-radius: 5px;
-}
+  margin-left: 302px; }
+  header h3, header .flexcolumn {
+    padding: 48px 20px 47px 30px; }
+  header .flexcolumn {
+    padding-left: 30px;
+    padding-right: 0; }
+    header .flexcolumn p {
+      font-weight: 600; }
+    header .flexcolumn p:first-child {
+      font-size: 12px;
+      opacity: 0.4; }
+  header .button {
+    width: 221px;
+    background: white;
+    border: none;
+    margin-top: 41px;
+    margin-left: auto;
+    margin-right: 66px;
+    overflow: hidden; }
+    header .button p {
+      color: black;
+      font-weight: 500; }
+  header .backbutton {
+    display: inline-block;
+    cursor: pointer;
+    background: #181818;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 5px; }
 
 section.sidebar {
   position: fixed;
   border-right: solid 1px #181818;
   width: 300px;
-  height: 100%;
-}
-section.sidebar .thumbnail {
-  border-radius: 50%;
-  background: #181818;
-  width: 70px;
-  height: 70px;
-}
-section.sidebar menu {
-  margin: 0;
-  padding: 35px 20px;
-  border-bottom: solid 1px #181818;
-}
-section.sidebar menu span {
-  margin-left: 2px;
-  font-weight: 600;
-}
-section.sidebar menu li {
-  margin-top: 30px;
-  list-style-image: url(vectors/menusymbol.svg);
-  opacity: 0.3;
-  cursor: pointer;
-}
-section.sidebar menu li:first-child {
-  margin: 0;
-}
-section.sidebar menu li:hover, section.sidebar menu li.active {
-  opacity: 1;
-}
-section.sidebar footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  height: 100%;
-}
+  height: 100%; }
+  section.sidebar .thumbnail {
+    border-radius: 50%;
+    background: #181818;
+    width: 70px;
+    height: 70px; }
+  section.sidebar menu {
+    margin: 0;
+    padding: 35px 20px;
+    border-bottom: solid 1px #181818; }
+    section.sidebar menu span {
+      margin-left: 2px;
+      font-weight: 600; }
+    section.sidebar menu li {
+      margin-top: 30px;
+      list-style-image: url(vectors/menusymbol.svg);
+      opacity: 0.3;
+      cursor: pointer; }
+    section.sidebar menu li:first-child {
+      margin: 0; }
+    section.sidebar menu li:hover, section.sidebar menu li.active {
+      opacity: 1; }
+  section.sidebar footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 100%; }
 
 #username {
   width: 119px;
   height: 53px;
-  padding: 20px 0 0 20px;
-}
-#username p {
-  font-family: Raleway;
-  font-size: 16px;
-  font-weight: 600;
-  color: white;
-}
+  padding: 20px 0 0 20px; }
+  #username p {
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 600;
+    color: white; }
 
 .profile {
   display: flex;
   flex-direction: column;
   padding: 30px 0 27px 20px;
-  border-bottom: solid 1px #181818;
-}
-.profile .button {
-  margin-left: 0;
-  padding: 0 15px;
-  width: 224px;
-  background: #181818;
-}
-.profile .expense {
-  display: flex;
-  flex-direction: row;
-  margin-top: 30px;
-}
-.profile .expense p {
-  font-weight: 600;
-  padding-left: 16px;
-}
-.profile .expense p:first-child {
-  font-size: 12px;
-  opacity: 0.4;
-}
-.profile .expense .blockofcoins {
-  width: 32px;
-  height: 32px;
-  background: #181818;
-  border-radius: 5px;
-}
-.profile .expense .blockofcoins .coins {
-  padding: 10px;
-}
+  border-bottom: solid 1px #181818; }
+  .profile .button {
+    margin-left: 0;
+    padding: 0 15px;
+    width: 224px;
+    background: #181818; }
+  .profile .expense {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px; }
+    .profile .expense p {
+      font-weight: 600;
+      padding-left: 16px; }
+    .profile .expense p:first-child {
+      font-size: 12px;
+      opacity: 0.4; }
+    .profile .expense .blockofcoins {
+      width: 32px;
+      height: 32px;
+      background: #181818;
+      border-radius: 5px; }
+      .profile .expense .blockofcoins .coins {
+        padding: 10px; }
 
 section.content menu {
   display: flex;
   margin-left: 293px;
-  margin-top: 30px;
-}
-section.content menu li {
-  padding: 15px 36px;
-  cursor: pointer;
-  display: inline-block;
-}
-section.content menu li:first-child {
-  padding: 15px 30px;
-  margin: 0;
-}
-section.content menu li.active, section.content menu li:hover {
-  background: #181818;
-  border-radius: 5px;
-}
+  margin-top: 30px; }
+  section.content menu li {
+    padding: 15px 36px;
+    cursor: pointer;
+    display: inline-block; }
+  section.content menu li:first-child {
+    padding: 15px 30px;
+    margin: 0; }
+  section.content menu li.active, section.content menu li:hover {
+    background: #181818;
+    border-radius: 5px; }
+
 section.content .content_block .flexcolumn {
-  margin-top: 20px;
-}
-section.content .content_block .flexcolumn p {
-  font-weight: 600;
-}
-section.content .content_block .flexcolumn p:first-child {
-  font-size: 12px;
-  opacity: 0.4;
-}
+  margin-top: 20px; }
+  section.content .content_block .flexcolumn p {
+    font-weight: 600; }
+  section.content .content_block .flexcolumn p:first-child {
+    font-size: 12px;
+    opacity: 0.4; }
 
 .flexcolumn {
   display: flex;
-  flex-direction: column;
-}
+  flex-direction: column; }
 
 section.sidebar menu li.active,
 section.sidebar menu li:hover,
 .extrainfo p:hover {
-  opacity: 1;
-}
+  opacity: 1; }
 
 .extrainfo {
   display: block;
@@ -400,28 +326,24 @@ section.sidebar menu li:hover,
   border-bottom: solid 1px #181818;
   border-top: solid 1px #181818;
   padding: 30px 0 0 20px;
-  line-height: 40px;
-}
-.extrainfo p {
-  font-weight: 600;
-  cursor: pointer;
-  opacity: 0.3;
-}
-.extrainfo p:hover {
-  opacity: 1;
-}
+  line-height: 40px; }
+  .extrainfo p {
+    font-weight: 600;
+    cursor: pointer;
+    opacity: 0.3; }
+  .extrainfo p:hover {
+    opacity: 1; }
 
-section:not(.firstscreen_viewer) #rendPart > div {
+#rendPart > div {
   display: flex;
   align-items: center;
-  height: 96px;
-}
-section:not(.firstscreen_viewer) #rendPart p {
+  height: 96px; }
+
+#rendPart p {
   font-family: Raleway;
   font-size: 14px;
   font-weight: 500;
-  color: white;
-}
+  color: white; }
 
 #night, #day {
   margin-left: 20px;
@@ -432,248 +354,212 @@ section:not(.firstscreen_viewer) #rendPart p {
   text-align: center;
   line-height: 36px;
   opacity: 0.3;
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 #night.active, #day.active {
   opacity: 1;
   background: #181818;
-  border: none;
-}
+  border: none; }
 
 section.battlespage .content {
   display: flex;
   flex-direction: row;
   margin: 30px 0 0 320px;
-  flex-wrap: wrap;
-}
-section.battlespage .content .content_block {
-  border-radius: 5px;
-  width: 228px;
-  height: 360px;
-  background: #181818;
-  margin: 0 0 20px 20px;
-  padding: 30px;
-  padding-bottom: 0;
-}
+  flex-wrap: wrap; }
+  section.battlespage .content .content_block {
+    border-radius: 5px;
+    width: 228px;
+    height: 360px;
+    background: #181818;
+    margin: 0 0 20px 20px;
+    padding: 30px;
+    padding-bottom: 0; }
 
 h4 {
   font-family: Raleway;
   font-size: 25px;
   font-weight: "";
-  color: white;
-}
+  color: white; }
 
 .content_block .image_container {
   position: relative;
   width: 346px;
   height: 260px;
-  margin: 10px;
-}
-.content_block .image_container .block_medal {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  width: 50px;
-  height: 50px;
-  background: #0D0D0D;
-  text-align: center;
-  line-height: 60px;
-}
+  margin: 10px; }
+  .content_block .image_container .block_medal {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background: #0D0D0D;
+    text-align: center;
+    line-height: 60px; }
+
 .content_block .flexcolumn {
-  margin-top: 20px;
-}
+  margin-top: 20px; }
+
 .content_block .button {
-  width: 221px;
-}
+  width: 221px; }
+
 .content_block .button.battle__end {
   border: white solid 1px;
-  color: white;
-}
+  color: white; }
+
 .content_block .button.battle__not_end {
   background: white;
-  border: none;
-}
-.content_block .button.battle__not_end p {
-  color: black;
-}
+  border: none; }
+  .content_block .button.battle__not_end p {
+    color: black; }
 
 .button.battle__not_end p:after {
-  content: url(vectors/bonfire.svg);
-}
+  content: url(vectors/bonfire.svg); }
 
 section.battle header h3 {
-  padding-left: 0;
-}
+  padding-left: 0; }
 
 .onebattlepage .content_battles {
   display: flex;
   flex-direction: row;
   margin: 30px 0 0 312px;
-  flex-wrap: wrap;
-}
-.onebattlepage .content_battles .content_block {
-  width: 366px;
-  height: 320px;
-  border-radius: 5px;
-  background: #181818;
-  margin: 0 0 20px 20px;
-  padding-bottom: 0;
-}
-.onebattlepage .content_battles .content_block footer {
-  display: flex;
-  margin: 10px;
-  justify-content: space-between;
-}
-.onebattlepage .content_battles .content_block footer .stat {
-  display: flex;
-}
-.onebattlepage .content_battles .content_block footer .stat p {
-  font-size: 12px;
-  opacity: 0.5;
-  line-height: 30px;
-  padding-left: 5px;
-}
-.onebattlepage .content_battles .content_block footer .stat .stat_redacts,
-.onebattlepage .content_battles .content_block footer .stat .stat_likes,
-.onebattlepage .content_battles .content_block footer .stat .stat_score {
-  display: flex;
-  margin-left: 15px;
-}
-.onebattlepage .content_battles .content_block footer .thumbnail {
-  border-radius: 50%;
-  background: #565656;
-  width: 30px;
-  height: 30px;
-}
-.onebattlepage .content_battles .content_block .username {
-  margin-left: 10px;
-  width: 100px;
-}
-.onebattlepage .content_battles .content_block .username p {
-  font-size: 12px;
-  opacity: 0.5;
-}
+  flex-wrap: wrap; }
+  .onebattlepage .content_battles .content_block {
+    width: 366px;
+    height: 320px;
+    border-radius: 5px;
+    background: #181818;
+    margin: 0 0 20px 20px;
+    padding-bottom: 0; }
+    .onebattlepage .content_battles .content_block footer {
+      display: flex;
+      margin: 10px;
+      justify-content: space-between; }
+      .onebattlepage .content_battles .content_block footer .stat {
+        display: flex; }
+        .onebattlepage .content_battles .content_block footer .stat p {
+          font-size: 12px;
+          opacity: 0.5;
+          line-height: 30px;
+          padding-left: 5px; }
+        .onebattlepage .content_battles .content_block footer .stat .stat_redacts,
+        .onebattlepage .content_battles .content_block footer .stat .stat_likes,
+        .onebattlepage .content_battles .content_block footer .stat .stat_score {
+          display: flex;
+          margin-left: 15px; }
+      .onebattlepage .content_battles .content_block footer .thumbnail {
+        border-radius: 50%;
+        background: #565656;
+        width: 30px;
+        height: 30px; }
+    .onebattlepage .content_battles .content_block .username {
+      margin-left: 10px;
+      width: 100px; }
+      .onebattlepage .content_battles .content_block .username p {
+        font-size: 12px;
+        opacity: 0.5; }
 
 section.battleupload h4 {
-  margin: 50px 0 0 345px;
-}
+  margin: 50px 0 0 345px; }
+
 section.battleupload a {
-  text-decoration: none;
-}
+  text-decoration: none; }
 
 .uploadwork, .uploadwork > div:first-child {
-  display: flex;
-}
-.uploadwork .workuploadwindow {
-  width: 845px;
-  height: 615px;
-  text-align: center;
-  border: dashed 3px rgba(255, 255, 255, 0.2);
-  border-radius: 5px;
-  margin: 44px 0 0 358px;
-  cursor: pointer;
-}
-.uploadwork .workuploadwindow img {
-  margin-top: 226px;
-}
-.uploadwork .workuploadwindow img:first-child {
-  position: absolute;
-  margin: 243px 0 0 19px;
-}
-.uploadwork .workuploadwindow p {
-  margin-top: 7px;
-  /**/
-  font-size: 16px;
-  font-weight: 600;
-}
-.uploadwork .workuploadwindow p:first-child,
-.uploadwork .workuploadwindow p.downloaded {
-  margin-top: 25px;
-  font-family: "Raleway";
-  font-size: 24px;
-  font-weight: 600;
-  color: "white";
-}
-.uploadwork .workuploadwindow p.downloaded {
-  margin-top: 300px;
-  font-family: "Raleway";
-  font-size: 24px;
-  font-weight: 600;
-  color: white;
-}
-.uploadwork .workuploadwindow div p:last-child {
-  margin-top: 20px;
-  opacity: 0.3;
-}
-.uploadwork .workinfo {
-  display: flex;
-  flex-direction: column;
-  margin-left: 58px;
-}
-.uploadwork .workinfo .workinfo_heading {
-  width: 356px;
-  margin-top: 50px;
-}
-.uploadwork .workinfo .workinfo_heading p:first-child {
-  font-family: "Raleway";
-  font-size: 20px;
-  font-weight: 600;
-  color: "";
-}
-.uploadwork .workinfo .workinfo_heading p:last-child {
-  font-weight: 400;
-  padding-top: 20px;
-}
-.uploadwork .workinfo .inputwindow {
-  width: 416px;
-  height: 382px;
-  border: 1px solid #565656;
-  border-radius: 5px;
-  margin-top: 30px;
-}
-.uploadwork .inputfield {
-  background: inherit;
-  font-family: Raleway;
-  font-size: 16px;
-  font-weight: 400;
-  color: #565656;
-  padding: 20px;
-  border: none;
-  width: -webkit-fill-available;
-  height: -webkit-fill-available;
-  resize: none;
-}
-.uploadwork .inputfield:focus {
-  border: 1px solid white;
-  border-radius: 5px;
-  color: white;
-}
-.uploadwork .button {
-  padding: 0 30px;
-  color: white;
-  border: 1px solid #FFFFFF;
-}
-.uploadwork .button p {
-  font-weight: 500;
-}
-.uploadwork .button:last-child {
-  margin-left: 10px;
-}
-.uploadwork .flexrow .button.active {
-  background: #FFFFFF;
-}
-.uploadwork .flexrow .button.active p {
-  color: black;
-}
-
-/****/
+  display: flex; }
+  .uploadwork .workuploadwindow, .uploadwork > div:first-child .workuploadwindow {
+    width: 845px;
+    height: 615px;
+    text-align: center;
+    border: dashed 3px rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin: 44px 0 0 358px; }
+    .uploadwork .workuploadwindow > label, .uploadwork .workuploadwindow > label > div, .uploadwork > div:first-child .workuploadwindow > label, .uploadwork > div:first-child .workuploadwindow > label > div {
+      width: 845px;
+      height: 615px;
+      cursor: pointer; }
+    .uploadwork .workuploadwindow img, .uploadwork > div:first-child .workuploadwindow img {
+      margin-top: 226px; }
+    .uploadwork .workuploadwindow img:first-child, .uploadwork > div:first-child .workuploadwindow img:first-child {
+      position: absolute;
+      margin: 243px 0 0 19px; }
+    .uploadwork .workuploadwindow p, .uploadwork > div:first-child .workuploadwindow p {
+      margin-top: 7px;
+      /**/
+      font-size: 16px;
+      font-weight: 600; }
+    .uploadwork .workuploadwindow p:first-child, .uploadwork > div:first-child .workuploadwindow p:first-child {
+      margin-top: 25px;
+      font-family: "Raleway";
+      font-size: 24px;
+      font-weight: 600;
+      color: ""; }
+    .uploadwork .workuploadwindow p:last-child, .uploadwork > div:first-child .workuploadwindow p:last-child {
+      margin-top: 20px;
+      opacity: 0.3; }
+    .uploadwork .workuploadwindow p.downloaded, .uploadwork > div:first-child .workuploadwindow p.downloaded {
+      margin-top: 300px;
+      font-family: "Raleway";
+      font-size: 24px;
+      font-weight: 600;
+      color: white; }
+  .uploadwork .workinfo, .uploadwork > div:first-child .workinfo {
+    display: flex;
+    flex-direction: column;
+    margin-left: 58px; }
+    .uploadwork .workinfo .workinfo_heading, .uploadwork > div:first-child .workinfo .workinfo_heading {
+      width: 356px;
+      margin-top: 50px; }
+      .uploadwork .workinfo .workinfo_heading p:first-child, .uploadwork > div:first-child .workinfo .workinfo_heading p:first-child {
+        font-family: "Raleway";
+        font-size: 20px;
+        font-weight: 600;
+        color: ""; }
+      .uploadwork .workinfo .workinfo_heading p:last-child, .uploadwork > div:first-child .workinfo .workinfo_heading p:last-child {
+        font-weight: 400;
+        padding-top: 20px; }
+    .uploadwork .workinfo .inputwindow, .uploadwork > div:first-child .workinfo .inputwindow {
+      width: 416px;
+      height: 382px;
+      border: 1px solid #565656;
+      border-radius: 5px;
+      margin-top: 30px; }
+  .uploadwork .inputfield, .uploadwork > div:first-child .inputfield {
+    background: inherit;
+    font-family: Raleway;
+    font-size: 16px;
+    font-weight: 400;
+    color: #565656;
+    width: -webkit-fill-available;
+    height: -webkit-fill-available;
+    padding: 20px;
+    border: none;
+    resize: none; }
+  .uploadwork .inputfield:focus, .uploadwork > div:first-child .inputfield:focus {
+    border: 1px solid white;
+    border-radius: 5px;
+    color: white; }
+  .uploadwork .button, .uploadwork > div:first-child .button {
+    padding: 0 30px;
+    color: white;
+    border: 1px solid #FFFFFF; }
+    .uploadwork .button p, .uploadwork > div:first-child .button p {
+      font-weight: 500; }
+  .uploadwork .button:last-child, .uploadwork > div:first-child .button:last-child {
+    margin-left: 10px; }
+  .uploadwork .flexrow .button.active, .uploadwork > div:first-child .flexrow .button.active {
+    background: #FFFFFF; }
+  .uploadwork .flexrow .button.active p, .uploadwork > div:first-child .flexrow .button.active p {
+    color: black; }
 
 .input__file {
   opacity: 0;
   visibility: hidden;
-  position: absolute;
-}
+  position: absolute; }
+
+.modal__window-visibility {
+  opacity: 1;
+  visibility: visible;
+  z-index: 1; }
 
 .block__modal {
   position: fixed;
@@ -681,51 +567,45 @@ section.battleupload a {
   right: 0;
   left: 0;
   bottom: 0;
-  z-index: -1;
-}
-.modal__window {
-  position: absolute;
-  left: 40%;
-  top: 25%;
-  text-align: center;
-  font-family: "Raleway";
-  font-size: 32px;
-  font-weight: 600;
-  color: white;
-  background: rgb(27, 26, 26);
-  border-radius: 5px;
-  width: 600px;
-  height: 300px;
-  padding: 30px 25px 0 25px;
-  opacity: 0;
-  transition: opacity 0.5s;
-  visibility: hidden;
-  z-index: 2;
-}
-.modal__window .buttons_modal {
-  display: flex;
-  flex-direction: row-reverse;
-  margin-top: 24%;
-}
-.modal__window-ok, .modal__window-cancel {
-  cursor: pointer;
-  border-radius: 5px;
-  margin-right: 4%;
-  font-size: 24px;
-  width: 130px;
-  height: 50px;
-  background: rgb(0, 0, 0);
-  text-align: center;
-  line-height: 50px;
-  visibility: inherit;
-}
-.modal__window-visibility {
-  opacity: 1;
-  visibility: visible;
-  z-index: 1;
-}
+  z-index: -1; }
+  .block__modal .modal__window {
+    position: absolute;
+    left: 40%;
+    top: 25%;
+    text-align: center;
+    font-family: Raleway;
+    font-size: 32px;
+    font-weight: 600;
+    color: white;
+    background: #1b1a1a;
+    border-radius: 5px;
+    width: 600px;
+    height: 300px;
+    padding: 30px 25px 0 25px;
+    opacity: 0;
+    transition: opacity 0.5s;
+    visibility: hidden;
+    z-index: 2; }
+    .block__modal .modal__window .buttons_modal {
+      display: flex;
+      flex-direction: row-reverse;
+      margin-top: 24%; }
+      .block__modal .modal__window .buttons_modal .modal__window-ok, .block__modal .modal__window .buttons_modal .modal__window-cancel {
+        cursor: pointer;
+        border-radius: 5px;
+        margin-right: 4%;
+        font-size: 24px;
+        width: 130px;
+        height: 50px;
+        background: black;
+        text-align: center;
+        line-height: 50px;
+        visibility: inherit; }
+  .block__modal .modal__window.modal__window-visibility {
+    opacity: 1;
+    visibility: visible;
+    z-index: 1; }
+
 .block__modal.opacity {
   background-color: rgba(255, 255, 255, 0.2);
-}
-
-/*# sourceMappingURL=style.css.map */
+  z-index: 0; }
