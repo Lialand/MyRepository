@@ -6,8 +6,5 @@ export default function reactor() {
     ReactDOM.render(
         <Push />,
         document.getElementById("imagecreator"),
-        function() { 
-            console.log("Images have been compiled");
-        }
     )
 }

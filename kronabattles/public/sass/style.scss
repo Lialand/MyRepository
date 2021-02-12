@@ -406,11 +406,11 @@ section.sidebar menu li:hover,
     }
 }
 
-#rendPart {
+section:not(.firstscreen_viewer) #rendPart {
     > div {
         display: flex;
         align-items: center;
-        height: 96px; 
+        height: 96px;
     }
     p {
         @include fonter(Raleway, 14px, 500, white);

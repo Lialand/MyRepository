@@ -1,16 +1,24 @@
 body, html {
     margin: 0;
     padding: 0;
+    height: 100%;
     transition: margin-top 1s;
 }
 
 @media (min-width: 542px) {
-    section.contentwrappermob {
+    section.contentwrappermob, 
+    div.krona,
+    section.contentwrappercomp .hideElem {
         display: none;
     }
-    div.krona {
-        display: none;
-    }
+}
+
+.displayer {
+    display: flex!important;
+}
+
+.nodisplayer {
+    display: none!important;
 }
 
 a {
@@ -558,11 +566,17 @@ div.director_photo {
 
 @media (max-width: 541px) {
     
-    section.contentwrappercomp {
+    section.contentwrappercomp, .web {
         display: none;
+        flex-direction: column;
+        height: 100%;
     }
 
-    header, .web, .content_block.krona {
+    section.contentwrappermob {
+        height: 100%;
+    }
+
+    header, .content_block.krona {
         display: flex;
         flex-direction: column;
         height: 100vh;
@@ -626,9 +640,13 @@ div.director_photo {
     section.contentwrappermob h1, div.krona h1.content_block_krona {
         padding: 0;
         margin: 0 15px 40px 15px;
-        font-size: 52px;
+        font-size: 54px;
         line-height: 68.28px;
         word-break: break-all;
+    }
+
+    section.contentwrappermob footer h1.content_block_krona {
+        margin: auto 0 auto 15px;
     }
 
     section.contentwrappermob .content_block, .content_block.krona, .krona .content_block {
@@ -657,10 +675,6 @@ div.director_photo {
 
     .topmenu__symbol.active {
         transform: translate(0) rotate(0);
-    }
-
-    .nodisplayer {
-        display: none!important;
     }
 
     div.krona h1.content_block_krona  {
@@ -697,7 +711,6 @@ div.director_photo {
 
     footer.web .content_block {
         border-bottom: solid 2px white;
-        height: auto;
     }
 
     footer .content_block:last-child {
@@ -708,7 +721,6 @@ div.director_photo {
         color: white;
         font-size: 30px;
         font-weight: 100;
-        margin: 30px 25px 0 15px;
     }
 
     footer h3:last-child {
@@ -727,15 +739,24 @@ div.director_photo {
         font-size: 14px;
         opacity: 0.5;
         line-height: 21px;
-        margin: 0 0 30px 15px;
+        margin: 0;
         padding-right: 100px;
+    }
+    
+    .info {
+        margin: auto 0 auto 15px;
+    }
+
+    .info h3 {
+        margin: 0;
+        padding-bottom: 15px;
     }
 
     footer.web ul.services {
         margin-top: auto;
         margin-bottom: auto;
     }
-/* 
+    /* 
     footer.web .contacts h4 {
         margin-top: 15px;
     } */

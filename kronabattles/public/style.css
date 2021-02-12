@@ -334,12 +334,12 @@ section.sidebar menu li:hover,
   .extrainfo p:hover {
     opacity: 1; }
 
-#rendPart > div {
+section:not(.firstscreen_viewer) #rendPart > div {
   display: flex;
   align-items: center;
   height: 96px; }
 
-#rendPart p {
+section:not(.firstscreen_viewer) #rendPart p {
   font-family: Raleway;
   font-size: 14px;
   font-weight: 500;

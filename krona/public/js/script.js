@@ -3,7 +3,10 @@ let butact_child = document.querySelectorAll('.topmenu__symbol_line'); //псе�
 let active = false;
 let blockact = document.body.querySelector('.krona'); //поиск блока, который должен показываться при active
 let inst = document.getElementById('imagecreator');
-let webH = document.querySelector('section.web');
+let webH = document.querySelector('section.contentwrappermob header');
+
+let mobSections = document.querySelectorAll('.web');
+let hideBlocks = document.querySelectorAll('.hideElem');
 
 for (i=0; i < butact.length; i++) {
     butact[i].addEventListener('click', button); //событие привязано к блоку с линиями
@@ -12,12 +15,11 @@ for (i=0; i < butact.length; i++) {
 //меню с двумя линиями в адаптиве ----------------------------
 
 function button() {
-    console.log();
     if (!active) {
-        for (i=0; i < butact_child.length; i++) {
+        for (let i=0; i < butact_child.length; i++) {
             butact_child[i].classList.add('active');  //перебор и присваивание каждой линии класса active
         }
-        for (i=0; i < butact.length; i++) {
+        for (let i=0; i < butact.length; i++) {
             butact[i].classList.add('active'); //присваивание active для работы addEventListener
         }
         blockact.classList.remove('nodisplayer'); //показать активный блок
@@ -25,10 +27,10 @@ function button() {
         active = true;            
     }
     else {
-        for (i=0; i < butact_child.length; i++) {
+        for (let i=0; i < butact_child.length; i++) {
             butact_child[i].classList.remove('active'); //обратный процесс
         }
-        for (i=0; i < butact.length; i++) {
+        for (let i=0; i < butact.length; i++) {
             butact[i].classList.remove('active');
         }
         blockact.classList.add('nodisplayer');
@@ -36,20 +38,24 @@ function button() {
     }
 }  
 
-let pauseScroll, pauseScrollTouch = false;
-let startTouchY, endTouchY;
+let startTouchY, endTouchY, pauseScroll, pauseScrollTouch, resizeScrollNull, DOMReloaded;
+pauseScroll = pauseScrollTouch = DOMReloaded = false;
 
-let y = 0;
+let y, howManyScrolls;
+y = howManyScrolls = 0;
 let y0 = inst.clientHeight;
-y0 === 0 ? y0 = webH.clientHeight : y0 = inst.clientHeight;
 
 document.body.style.overflow = "hidden";
 
-addEventListener('resize', scrollNull);
-document.addEventListener('wheel', scroll);
+addEventListener('resize', scrollNull); //default screen position if width has been changed
+document.addEventListener('DOMContentLoaded', (e) => {DOMReloaded = true; scrollNull(e)}); //or page has been reloaded
 
-document.addEventListener('touchstart', getTouchStart);
-document.addEventListener('touchend', getTouchEnd);
+document.addEventListener('wheel', (e) => {if (!pauseScroll) scroll(e)}, { passive: false }); //desktop scroll with mouse wheel 
+window.addEventListener('scroll', (e) => e.preventDefault(), { passive: false }); //stop scroll event
+
+document.addEventListener('touchstart',(e) => {if(!pauseScrollTouch && !active) getTouchStart(e)}); //scroll on touchpads ---
+document.addEventListener('touchend', (e) => {if(!pauseScrollTouch && !active) getTouchEnd(e)} ); //---
+document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false } );
 
 function getTouchStart(e) {
     startTouchY = e.changedTouches[0].pageY;
@@ -58,52 +64,94 @@ function getTouchStart(e) {
 function getTouchEnd(e) {
     endTouchY = e.changedTouches[0].pageY;
 
-    if(!pauseScrollTouch) {
-        if (startTouchY - endTouchY > 0 && y <= (y0 * 3))
-            y += y0;
-        else if (startTouchY - endTouchY === 0)
-            console.log('tap');
-        else if (startTouchY - endTouchY < 0 && y <= (y0 * 4) && y > 0)
-            y -= y0;
-
-        document.body.style.marginTop = -y + "px";
-        pauseScroll = true;
+    if (startTouchY - endTouchY > 0 && howManyScrolls <= 3) {
+        y += y0;
+        howManyScrolls += 1;
+    }
+    else if (startTouchY - endTouchY < 0 && howManyScrolls <= 4 && y > 0) {
+        y -= y0;
+        howManyScrolls -= 1;
     }
 
+    document.body.style.marginTop = -y + "px";
+
+    pauseScrollTouch = true;
+    window.setTimeout( () => {pauseScrollTouch = false}, "1000" );
+
+    if (window.innerWidth <= 541)
+        clearClass(mobSections);
     else 
-        setTimeout(function() {pauseScrollTouch=false}, "1000");
+        clearClass(hideBlocks)
+}
+
+function clearClass(what) {
+    switch (howManyScrolls) {
+        case (0):
+            what[0].classList.add('displayer');
+            break;
+        case (1):
+            what[1].classList.add('displayer');
+            break;
+        case (2):
+            what[2].classList.add('displayer');
+            break;
+        case (3):
+            what[3].classList.add('displayer');
+            break;
+        case (4):
+            what[4].classList.add('displayer');
+            break;
+    }
 }
 
 function scroll(e) {
 
-    if (pauseScroll)
-        setTimeout( pauseScroll=false, "1000");
+    y0 = inst.clientHeight;
 
-    else if (!pauseScroll) {
+    if (window.innerWidth > 1390) {
+
         e = e || window.event;
         let delta = e.deltaY || e.detail || e.wheelDelta;
 
-        if (delta > 0 && y <= (y0 * 3)) 
+        if (delta > 0 && howManyScrolls <= 3) {
             y += y0;
-        else if (delta < 0 && y <= (y0 * 4) && y > 0) 
+            howManyScrolls += 1;
+        }
+        else if (delta < 0 && howManyScrolls <= 4 && y > 0) {
             y -= y0;
+            howManyScrolls -= 1;
+        }
+        
+        document.body.style.marginTop = -y + "px";
 
         pauseScroll = true;
-        document.body.style.marginTop = -y + "px";
+        window.setTimeout( () => {pauseScroll=false}, "1000" );
+
     }
 
+    clearClass(hideBlocks);
 }
 
 function scrollNull() {
-    y = 0;
-    y0 = inst.clientHeight;
-    document.body.style.marginTop = 0;
-    scrollTo(0, 0);
 
-    if (y0 === 0) 
-        y0 = webH.clientHeight;
+    if (window.innerWidth > 541)
+        resizeScrollNull = true;
     else 
-        y0 = inst.clientHeight
+        resizeScrollNull = false;
+
+    if (DOMReloaded || resizeScrollNull) {
+        document.body.style.marginTop = 0;
+        howManyScrolls = 0;
+        y = 0;
+        y0 = inst.clientHeight;
+
+        if (y0 === 0) 
+            y0 = webH.clientHeight;
+        else 
+            y0 = inst.clientHeight
+    }
+
+    DOMReloaded = false;
 }
 
 //анимация для картинок
@@ -127,9 +175,16 @@ function imgPosInst() {
         if (animInst > 563) //для беспрерывного движения картинок необходимо тут задать ТОЛЬКО animInst=0
             stopanimInst = true;
     }                
-    else if  (document.body.style.marginTop !== -y0 + "px") {
-        stopanimInst = false;
-        animInst = 0;
+    else if (document.body.style.marginTop !== -y0 + "px" && stopanimInst) {
+        animInst -= 10;
+        for (i = 0 ; i < divHgts.length ; i++) {
+            if (i%2 == 0) 
+                divHgts[i].style.transform = 'translateY(' + animInst + 'px)';    
+            else
+                divHgts[i].style.transform = 'translateY(' + (-animInst) + 'px)';
+        } 
+        if (animInst == 0)
+            stopanimInst = false;
     }
 }
 
