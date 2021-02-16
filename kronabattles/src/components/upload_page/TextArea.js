@@ -19,7 +19,8 @@ export default class TextArea extends React.Component {
     render() {
         return (
         <div className="inputwindow">
-            <textarea id="input__text" className="inputfield" 
+            <textarea name="work__comment"
+            id="input__text" className="inputfield" 
             value={this.state.value}
             onChange={this.handleChange}
             placeholder="Описание работы..."></textarea>

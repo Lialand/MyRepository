@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
+//not using Component
+
+/*import React, { useState } from 'react'
 import TextArea, { isTapped } from './TextArea'
 import ButtonsForm from './ButtonsForm'
-import Modal from './Modal'
-import { picUploaded } from './Upload'
 
 export default function Form() {
     let [vision, setVision] = useState('modal__window');
@@ -53,4 +53,4 @@ export default function Form() {
             </div>
         </>
     )
-}
+}*/

@@ -165,7 +165,7 @@ reverse = stopanimInst = stopanimYout = stopanimBeh = false;
 function imgPosInst() {
     let divHgts = document.querySelectorAll("div.height");
     if (document.body.style.marginTop == -y0 + "px" && !stopanimInst) {
-        animInst += 10; //тут можно установить скорость перемещения картинок
+        animInst += 15; //тут можно установить скорость перемещения картинок
         for (i = 0 ; i < divHgts.length ; i++) {
             if (i%2 == 0) 
                 divHgts[i].style.transform = 'translateY(' + animInst + 'px)';         
@@ -176,7 +176,7 @@ function imgPosInst() {
             stopanimInst = true;
     }                
     else if (document.body.style.marginTop !== -y0 + "px" && stopanimInst) {
-        animInst -= 10;
+        animInst -= 15;
         for (i = 0 ; i < divHgts.length ; i++) {
             if (i%2 == 0) 
                 divHgts[i].style.transform = 'translateY(' + animInst + 'px)';    
@@ -193,20 +193,20 @@ setInterval(imgPosInst, "24");
     //это на ютуб
 
 function imgPosYout() {
-    let pics = document.getElementById("imgyoutube").querySelectorAll("img");
+    let pics = document.getElementById("imgyoutube").querySelectorAll(".width");
     if (document.body.style.marginTop == -y0 * 3 + "px" && !stopanimYout) {
-        animYout += 10; //тут можно установить скорость перемещения картинок
+        animYout += 20; //тут можно установить скорость перемещения картинок
         for (i = 0 ; i < pics.length ; i++) {
             if (i%2 == 0) 
                 pics[i].style.transform = 'translateX(' + animYout + 'px)';    
             else
                 pics[i].style.transform = 'translateX(' + (-animYout) + 'px)';
         }
-        if (animYout > 1167)
+        if (animYout > 700)
             stopanimYout = true;
     }  
     else if (document.body.style.marginTop !== -y0 * 3 + "px" && stopanimYout) {
-        animYout -= 10;
+        animYout -= 20;
         for (i = 0 ; i < pics.length ; i++) {
             if (i%2 == 0) 
                 pics[i].style.transform = 'translateX(' + animYout + 'px)';    
@@ -225,18 +225,18 @@ setInterval(imgPosYout, "24");
 function imgPosBeh() {
     let pics = document.getElementById("imgbehance").querySelectorAll("img");
     if (document.body.style.marginTop == -y0 * 2 + "px" && !stopanimBeh) {
-        animBeh += 10; //тут можно установить скорость перемещения картинок
+        animBeh += 20; //тут можно установить скорость перемещения картинок
         for (i = 0 ; i < pics.length ; i++) {
             if (i%2 == 0) 
                 pics[i].style.transform = 'translateY(' + animBeh + 'px)';    
             else
                 pics[i].style.transform = 'translateY(' + (-animBeh) + 'px)';
         }
-        if (animBeh > 1167)
+        if (animBeh > 700)
             stopanimBeh = true;
     }  
     else if (document.body.style.marginTop !== -y0 * 2 + "px" && stopanimBeh) {
-        animBeh -= 10;
+        animBeh -= 20;
         for (i = 0 ; i < pics.length ; i++) {
             if (i%2 == 0) 
                 pics[i].style.transform = 'translateY(' + animBeh + 'px)';    

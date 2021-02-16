@@ -129,12 +129,19 @@ h3 {
     justify-content: space-between;
 }
 
+#imgyoutube .width {
+    width: 9999px;
+    display: flex;
+    flex-direction: row;
+}
+
 #imgyoutube img {
     width: 2234px;
+    margin-top: 20px;
 }
 
 #imgyoutube img:nth-child(2n+1) {
-    margin-left: -1167px;
+    margin-left: -900px;
 }
 
 #imgbehance {
@@ -142,13 +149,13 @@ h3 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    margin: -270px 0 0 -300px;
+    margin: 100px 0 0 -700px;
     transform: rotate(15deg);
 }
 
 #imgbehance img {
     height: 3363px;
+    margin-left: 20px;
 }
 
 #imgbehance img:nth-child(2n+1) {
@@ -234,10 +241,14 @@ section.sitehead .content_block {
     content: url(vectors/Vector2.svg);
 }
 
-.content_block.instagram,.content_block.behance,.content_block.youtube, .black {
+.content_block.instagram,.content_block.behance,.content_block.youtube, .black, .white {
     border: none;
     overflow: hidden;
     height: 100vh;
+}
+
+.white {
+    background-color: white;
 }
 
 .followers {

@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/server.js",
   "scripts": {
-    "start": "start http://localhost:3000/ && npm run startdev",
+    "start": "start http://127.0.0.1:3000/ && npm run startdev",
     "startdev": "nodemon ./src/server.js",
     "dev": "webpack serve",
     "build": "webpack",

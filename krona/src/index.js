@@ -1,5 +1,7 @@
-import reactor from './Reactor'
+import { reactorInst, reactorBeh, reactorYout } from './Reactor'
 
-reactor();
+reactorInst();
+reactorBeh();
+reactorYout();
 
-addEventListener('resize', reactor);
+addEventListener('resize', () => {reactorInst(), reactorBeh(), reactorYout()});   

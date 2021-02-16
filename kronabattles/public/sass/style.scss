@@ -48,6 +48,10 @@ $weight-serif: 600;
     flex-direction: $dir;
 }
 
+a {
+    text-decoration: none;
+}
+
 body {
     background-color: black;
 }
@@ -65,8 +69,9 @@ body, html {
 }
 
 .contactpart {
-    @include w-h(99vw, 1080px);
-    margin: 0 auto;
+    @include w-h(100vw, 1080px);
+    margin-left: auto;
+    margin-right: auto;
 }
 
 h1, h2, h3, h4, p {
@@ -85,9 +90,8 @@ h2 {
     padding-top: 229px;
 }
 
-.leftcolumn, .rightcolumn {
-    display: block;
-    width: 100%;
+.rightcolumn {
+    margin-left: 349px;
 }
 
 .loginandpass, .flexrow {
@@ -126,7 +130,7 @@ h2 {
     font-size: 16px;
     opacity: 0.9;
     margin-top: 30px;
-    padding-right: 520px;
+    width: 410px;
     line-height: 30px;
 }
 
@@ -161,7 +165,7 @@ h3 {
     @include fonter(Raleway, 30px, 600, white);
 }
 
-#changePart {
+#rendPart, #sidebar {
     .log_in {
         p {
             margin-top: 0;
@@ -170,12 +174,18 @@ h3 {
             font-size: 30px;
         }
     }
-    .flexrow a {
+    .flexrow {
+        a {
         @include fonter(Raleway, '', '', white);
         line-height: 79px;
         margin-left: 43px;
         &:first-child {
             margin-left: 0;
+            }
+        }
+        p:first-child {
+            padding-top: 68px;
+            font-weight: 500;
         }
     }
     h3 {
@@ -406,7 +416,7 @@ section.sidebar menu li:hover,
     }
 }
 
-section:not(.firstscreen_viewer) #rendPart {
+#sidebar {
     > div {
         display: flex;
         align-items: center;
@@ -492,6 +502,10 @@ h4 {
     content: url(vectors/bonfire.svg);
 }
 
+.button.battle__not_end + a > p:after {
+    content: '';
+}
+
 section.battle header h3 {
     padding-left: 0;
 }
@@ -555,6 +569,7 @@ section.battleupload {
     display: flex;
     .workuploadwindow {
         @include w-h(845px, 615px);
+        display: flex;
         text-align: center;
         border: dashed 3px rgba(255, 255, 255, 0.2);
         border-radius: 5px;
@@ -562,6 +577,10 @@ section.battleupload {
         > label, > label > div{
             @include w-h(845px, 615px);
             cursor: pointer;
+        }
+        label > div > div p:last-child {
+            margin-top: 20px;
+            opacity: 0.3;
         }
         img {
             margin-top: 226px;
@@ -579,11 +598,7 @@ section.battleupload {
             margin-top: 25px;
             @include fonter('Raleway', 24px, 600, '');
         }
-        p:last-child {
-            margin-top: 20px;
-            opacity: 0.3;
-        }
-        p.downloaded {
+        div.downloaded p {
             margin-top: 300px;
             @include fonter('Raleway', 24px, 600, white);
         }
@@ -593,13 +608,18 @@ section.battleupload {
         margin-left: 58px;
         .workinfo_heading {
             width: 356px;
-            margin-top: 50px;
-            p:first-child {
+            p {
                 @include fonter('Raleway', 20px, 600, '');
+                text-align: start;
             }
-            p:last-child {
-                font-weight: 400;
-                padding-top: 20px;
+            p:first-child {
+                margin-top: 0;
+            }
+            p + p {
+                @include fonter('Raleway', 16px, 400, '');
+                opacity: 1;
+                line-height: 25.6px;
+                margin-top: 20px;
             }
         }
         .inputwindow {
@@ -626,9 +646,6 @@ section.battleupload {
         padding: 0 30px;
         color: white;
         border: 1px solid #FFFFFF;
-        p {
-            font-weight: 500;
-        }
     }
     .button:last-child {
         margin-left: 10px;
@@ -639,6 +656,11 @@ section.battleupload {
         }
         .button.active p {
             color: black;
+        }
+        .button p {
+            font-size: 16px;
+            font-weight: 600;
+            margin-top: 0;
         }
     }
 }
@@ -700,5 +722,5 @@ section.battleupload {
 }
 .block__modal.opacity {
     background-color: rgba(255, 255, 255, 0.2);
-    z-index: 0;
+    z-index: 1;
 }
