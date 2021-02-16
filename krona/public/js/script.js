@@ -73,18 +73,21 @@ function getTouchEnd(e) {
         howManyScrolls -= 1;
     }
 
-    document.body.style.marginTop = -y + "px";
+    if (window.innerWidth <= 541) {
+        document.body.querySelector('section.contentwrappermob').style.marginTop = -y + "px";
+        showClass(mobSections);
+    }
+    else {
+        document.body.style.marginTop = -y + "px";
+        showClass(hideBlocks);
+    }
 
     pauseScrollTouch = true;
     window.setTimeout( () => {pauseScrollTouch = false}, "1000" );
 
-    if (window.innerWidth <= 541)
-        clearClass(mobSections);
-    else 
-        clearClass(hideBlocks)
 }
 
-function clearClass(what) {
+function showClass(what) {
     switch (howManyScrolls) {
         case (0):
             what[0].classList.add('displayer');
@@ -106,9 +109,11 @@ function clearClass(what) {
 
 function scroll(e) {
 
+    e.preventDefault();
+
     y0 = inst.clientHeight;
 
-    if (window.innerWidth > 1390) {
+    if (window.innerWidth > 541) {
 
         e = e || window.event;
         let delta = e.deltaY || e.detail || e.wheelDelta;
@@ -129,7 +134,7 @@ function scroll(e) {
 
     }
 
-    clearClass(hideBlocks);
+    showClass(hideBlocks);
 }
 
 function scrollNull() {

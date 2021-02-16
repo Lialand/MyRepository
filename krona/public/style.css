@@ -8,7 +8,8 @@ body, html {
 @media (min-width: 542px) {
     section.contentwrappermob, 
     div.krona,
-    section.contentwrappercomp .hideElem {
+    section.contentwrappercomp .hideElem,
+    .topmenu {
         display: none;
     }
 }
@@ -549,7 +550,7 @@ div.director_photo {
         width: 40px; 
     } 
 
-    .dir > .picrounder {
+    .dir > a > .picrounder {
         height: 100px; 
         width: 100px; 
     } 
@@ -576,6 +577,10 @@ div.director_photo {
 }
 
 @media (max-width: 541px) {
+
+    section.contentwrappermob {
+        transition: margin-top 1s;
+    }
     
     section.contentwrappercomp, .web {
         display: none;
@@ -596,7 +601,16 @@ div.director_photo {
     header, footer {
         background-color: black;
     }
+
+    section.youtube .links p {
+        color: #AD00FF;
+    }
     
+    .menuPlace {
+        height: 70px;
+        width: 100%;
+    }
+
     .topmenu {
         display: flex;
         justify-content: space-between;
@@ -604,6 +618,9 @@ div.director_photo {
         border-bottom: solid 2px white;
         width: 100%;
         align-items: center;
+        position: fixed;
+        z-index: 5;
+        top: 0;
     }
 
     h3.topmenu__menu {
@@ -717,7 +734,6 @@ div.director_photo {
         right: 0;
         left: 0;
         bottom: 0;
-        z-index: 9999;
     }
 
     footer.web .content_block {
@@ -767,10 +783,10 @@ div.director_photo {
         margin-top: auto;
         margin-bottom: auto;
     }
-    /* 
-    footer.web .contacts h4 {
-        margin-top: 15px;
-    } */
+
+    footer.web .content_block {
+        height: auto;
+    }
 
     h4#badheading {
         margin-bottom: 0;

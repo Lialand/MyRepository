@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { PushInst } from './Push'
-import { PushHBeh, PushHYout } from './PushH'
+import { PushInst, PushYout } from './Push'
+import { PushHBeh } from './PushH'
 
 function reactorInst() {
     ReactDOM.render(
@@ -19,7 +19,7 @@ function reactorBeh() {
 
 function reactorYout() {
     ReactDOM.render(
-        <PushHYout />,
+        <PushYout />,
         document.getElementById("imgyoutube")
     )
 }

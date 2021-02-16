@@ -1,5 +1,5 @@
 import React from 'react'
-import { PushHInst, PushHBeh, PushHYout }  from './PushH'
+import { PushHInst, PushWYout }  from './PushH'
 
 function PushInst() {
     let w_amount = (document.getElementById("imagecreator").clientWidth / 257);
@@ -20,12 +20,12 @@ function PushInst() {
 // }
 
 function PushYout() {
-    let w_amount = (document.getElementById("imagecreator").clientWidth / 257);
+    let h_amount = (window.innerHeight / 2 / 968);
     const w_arr = [];
-    for (let i = 0; i < w_amount; i++) {
-        w_arr.push(<Push_H key={i} />);
+    for (let i = 0; i < h_amount+1; i++) {
+        w_arr.push(<PushWYout key={i} />);
     }
-    return <div>{w_arr}</div>;
+    return <>{w_arr}</>;
 }
 
 export { PushInst, /*PushBeh,*/ PushYout }

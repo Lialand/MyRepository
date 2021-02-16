@@ -19,11 +19,13 @@ function PushHBeh() {
     return <>{h_arr}</>
 }
 
-function PushHYout() { 
-    let h_amount = (window.innerHeight / 2 / 968);
-    let arr1, arr2, arr3, arr4;
-    arr1 = arr2 = arr3 = arr4 = [];
-    for (let t = 0; t < (h_amount); t++) {
+function PushWYout() { 
+    let w_amount = (window.innerWidth / 2 / 968);
+    const arr1 = [];
+    const arr2 = [];
+    const arr3 = [];
+    const arr4 = [];
+    for (let t = 0; t < w_amount+1; t++) {
         arr1.push(<img src="photos/you1.jpg" key={'a'+t} />);
         arr2.push(<img src="photos/you2.jpg" key={'b'+t} />);
         arr3.push(<img src="photos/you3.jpg" key={'c'+t} />);
@@ -39,4 +41,4 @@ function PushHYout() {
     )
 }
 
-export { PushHInst, PushHBeh, PushHYout } 
+export { PushHInst, PushHBeh, PushWYout } 

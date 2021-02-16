@@ -15,15 +15,4 @@ function HeightsBeh() {
     ); 
 }
 
-function HeightsYout() { 
-    return(
-        <>
-        <img src="photos/you1.jpg" />
-        <img src="photos/you2.jpg" />
-        <img src="photos/you3.jpg" />
-        <img src="photos/you4.jpg" />
-        </>
-    ); 
-}
-
-export { HeightsInst, HeightsBeh, HeightsYout }
+export { HeightsInst, HeightsBeh }
