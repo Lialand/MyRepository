@@ -1,18 +1,18 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { PushInst, PushYout } from './Push'
+import { PushInst, PushYout, PushBeh } from './Push'
 import { PushHBeh } from './PushH'
 
 function reactorInst() {
     ReactDOM.render(
         <PushInst />,
-        document.getElementById("imagecreator")
+        document.getElementById("imginstagram")
     )
 }
 
 function reactorBeh() {
     ReactDOM.render(
-        <PushHBeh />,
+        <PushBeh />,
         document.getElementById("imgbehance")
     )
 }

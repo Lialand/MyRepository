@@ -1,22 +1,47 @@
 import React from 'react'
-import { HeightsInst, HeightsBeh, HeightsYout } from './Heights'
 
 function PushHInst() { 
-    let h_amount = (document.getElementById("imagecreator").clientHeight / 484);
-    const h_arr = [];
-    for (let t = 0; t < (h_amount + 2); t++) {
-        h_arr.push(<HeightsInst key={t} />);
+    let w_amount = (window.innerWidth / 2 / 968);
+    const arr1 = [];
+    const arr2 = [];
+    const arr3 = [];
+    const arr4 = [];
+    for (let t = 0; t < w_amount+1; t++) {
+        arr1.push(<img src="photos/inst1.png" key={'e'+t} />);
+        arr2.push(<img src="photos/inst2.png" key={'g'+t} />);
+        arr3.push(<img src="photos/inst3.png" key={'h'+t} />);
+        arr4.push(<img src="photos/inst4.png" key={'j'+t} />);
     }
-    return <div className='height'>{h_arr}</div>
+    return( 
+        <>
+            <div className="height">{arr1}</div>
+            <div className="height">{arr2}</div>
+            <div className="height">{arr3}</div>
+            <div className="height">{arr4}</div>
+        </>
+    )
 }
 
 function PushHBeh() { 
-    let h_amount = (window.innerWidth / 2 / 968);
-    const h_arr = [];
-    for (let t = 0; t < (h_amount + 1); t++) {
-        h_arr.push(<HeightsBeh key={t} />);
+    let w_amount = (window.innerWidth / 4 / 968);
+    const arr1 = [];
+    const arr2 = [];
+    const arr3 = [];
+    const arr4 = [];
+    for (let t = 0; t < w_amount+1; t++) {
+        arr1.push(<img src="photos/beh1.jpg" key={'e'+t} />);
+        arr2.push(<img src="photos/beh2.jpg" key={'g'+t} />);
+        arr3.push(<img src="photos/beh3.jpg" key={'h'+t} />);
+        arr4.push(<img src="photos/beh4.jpg" key={'j'+t} />);
     }
-    return <>{h_arr}</>
+    return( 
+        <>
+            <div className="height">{arr1}</div>
+            <div className="height">{arr2}</div>
+            <div className="height">{arr3}</div>
+            <div className="height">{arr4}</div>
+        </>
+    )
 }
 
 function PushWYout() { 

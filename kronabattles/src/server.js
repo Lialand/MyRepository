@@ -10,8 +10,9 @@ const server = http.createServer( function(req, res) {
     if (req.url == '/battle_upload.html/image') {
         let name, URL;
         req.on('data', chunk => {
-            let data = chunk;
-            console.log(typeof data, data);
+            fs.readfile(chunk.files, (err, data) => {
+                console.log(typeof data, data);
+            })
             // name = chunk.name.toString();
             // URL = chunk.base64.toString();
             // let base64Image = URL.split(';base64,').pop();

@@ -1,31 +1,31 @@
 import React from 'react'
-import { PushHInst, PushWYout }  from './PushH'
+import { PushHInst, PushHBeh, PushWYout }  from './PushH'
 
 function PushInst() {
-    let w_amount = (document.getElementById("imagecreator").clientWidth / 257);
-    const w_arr = [];
-    for (let i = 0; i < w_amount; i++) {
-        w_arr.push(<PushHInst key={i} />);
+    let h_amount = (window.innerHeight / 968);
+    const h_arr = [];
+    for (let i = 0; i < h_amount; i++) {
+        h_arr.push(<PushHInst key={i} />);
     }
-    return <div>{w_arr}</div>;
+    return <>{h_arr}</>;
 }
 
-// function PushBeh() {
-//     let w_amount = (document.getElementById("imagecreator").clientWidth / 257);
-//     const w_arr = [];
-//     for (let i = 0; i < w_amount; i++) {
-//         w_arr.push(<Push_H key={i} />);
-//     }
-//     return <div>{w_arr}</div>;
-// }
+function PushBeh() { 
+    let w_amount = (window.innerWidth / 2 / 968);
+    const w_arr = [];
+    for (let t = 0; t < w_amount+1; t++) {
+        w_arr.push(<PushHBeh key={t} />);
+    }
+    return <>{w_arr}</>
+}
 
 function PushYout() {
     let h_amount = (window.innerHeight / 2 / 968);
-    const w_arr = [];
+    const h_arr = [];
     for (let i = 0; i < h_amount+1; i++) {
-        w_arr.push(<PushWYout key={i} />);
+        h_arr.push(<PushWYout key={i} />);
     }
-    return <>{w_arr}</>;
+    return <>{h_arr}</>;
 }
 
-export { PushInst, /*PushBeh,*/ PushYout }
+export { PushInst, PushBeh, PushYout }

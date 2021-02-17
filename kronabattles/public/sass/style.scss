@@ -59,6 +59,7 @@ body {
 body, html {
     @include m-p(0, 0);
     cursor: default;
+    font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 @include ff('Raleway', 'fonts/Raleway/Raleway-Light.ttf');
@@ -76,7 +77,6 @@ body, html {
 
 h1, h2, h3, h4, p {
     @include m-p(0, 0);
-    font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
 h1 {

@@ -150,7 +150,7 @@ h3 {
     width: 100%;
     display: flex;
     flex-direction: row;
-    margin: 100px 0 0 -700px;
+    margin: 100px 0 0 -1350px;
     transform: rotate(15deg);
 }
 
@@ -159,7 +159,7 @@ h3 {
     margin-left: 20px;
 }
 
-#imgbehance img:nth-child(2n+1) {
+#imgbehance .height:nth-child(2n+1) {
     margin-top: -1181px;
 }
 
@@ -175,7 +175,7 @@ section.sitehead .content_block {
 
 .content_block ul {
     justify-content: flex-start;
-    max-width: 583px;
+    max-width: 640px;
 }
 
 .content_block_services {
@@ -307,6 +307,7 @@ div.youtube li::after {
 
 div.links p {
     margin-top: 20px;
+    width: 370px;
 }
 
 h2 {
@@ -412,31 +413,27 @@ div.director_photo {
     bottom: 25px;
 }
 
-#imagecreator, #imagecreator div {
-    display: flex;
-    background: black;
-    height: 100%;
+.backstar {
+    background-image: url(photos/star.png);
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-#imagecreator .height {
+#imginstagram {
+    display: flex;
+    height: 100%;
+    margin-left: -79px;
+}
+
+#imginstagram .height {
     display: flex;
     flex-direction: column;
-    margin-left: 87px;
+    margin-left: 25px;
     height: 9999px;
 }
 
-#imagecreator .height:nth-child(2n+1) {
-    margin-top: -584px;
-}
-
-#imagecreator .height:nth-child(2n) {
-    margin-top: -382px;
-}
-
-#imagecreator img {
-    margin-top: 80px;
-    width: 257px;
-    height: 484px;
+#imginstagram .height:nth-child(2n+1) {
+    margin-top: -547px;
 }
 
 @media (max-width: 1390px) and (min-width: 541px) {
@@ -474,6 +471,10 @@ div.director_photo {
 
     .links {
         font-size: 20px;
+    }
+
+    div.links p {
+        width: 250px;
     }
 
     .sitehead h1 {
@@ -621,6 +622,7 @@ div.director_photo {
         position: fixed;
         z-index: 5;
         top: 0;
+        transition: opacity 1s;
     }
 
     h3.topmenu__menu {
@@ -668,13 +670,15 @@ div.director_photo {
     section.contentwrappermob h1, div.krona h1.content_block_krona {
         padding: 0;
         margin: 0 15px 40px 15px;
-        font-size: 54px;
+        font-size: 50px;
         line-height: 68.28px;
         word-break: break-all;
     }
 
-    section.contentwrappermob footer h1.content_block_krona {
-        margin: auto 0 auto 15px;
+    div.krona h1.content_block_krona {
+        height: 100%;
+        display: flex;
+        align-items: center;
     }
 
     section.contentwrappermob .content_block, .content_block.krona, .krona .content_block {
@@ -736,8 +740,20 @@ div.director_photo {
         bottom: 0;
     }
 
+    .contactsMob {
+        padding: 20px 15px;
+        height: 100%;
+    }
+
+    footer.web .content {
+        display: flex;
+        flex-direction: column;
+    }
+
     footer.web .content_block {
         border-bottom: solid 2px white;
+        flex-shrink: 0;
+        height: auto;
     }
 
     footer .content_block:last-child {
@@ -746,7 +762,7 @@ div.director_photo {
 
     footer h3 {
         color: white;
-        font-size: 30px;
+        font-size: 25px;
         font-weight: 100;
     }
 
@@ -769,27 +785,22 @@ div.director_photo {
         margin: 0;
         padding-right: 100px;
     }
-    
-    .info {
-        margin: auto 0 auto 15px;
-    }
 
     .info h3 {
         margin: 0;
-        padding-bottom: 15px;
+        padding-bottom: 5px;
+    }
+
+    footer.web ul.services, 
+    .info:only-child {
+        padding: 20px 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     footer.web ul.services {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    footer.web .content_block {
-        height: auto;
-    }
-
-    h4#badheading {
-        margin-bottom: 0;
+        margin: 0;
     }
 
     ul.services li::after {
@@ -818,5 +829,18 @@ div.director_photo {
 
     section.youtube .links p:after {
         content: url(vectors/Vector3.svg);
+    }
+
+    .topmenu__textYoutube h3 {
+        color: black;
+    }
+
+    .topmenu__textYoutube .topmenu__symbol_line {
+        background: black;
+        transition: opacity 0.5s;
+    }
+
+    .disappear {
+        opacity: 0;
     }
 }

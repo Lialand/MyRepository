@@ -2,7 +2,7 @@ let butact = document.querySelectorAll('.topmenu__symbol'); //один блок 
 let butact_child = document.querySelectorAll('.topmenu__symbol_line'); //псевдомассив линий
 let active = false;
 let blockact = document.body.querySelector('.krona'); //поиск блока, который должен показываться при active
-let inst = document.getElementById('imagecreator');
+let firstSector = document.body.firstElementChild.firstElementChild;
 let webH = document.querySelector('section.contentwrappermob header');
 
 let mobSections = document.querySelectorAll('.web');
@@ -43,19 +43,19 @@ pauseScroll = pauseScrollTouch = DOMReloaded = false;
 
 let y, howManyScrolls;
 y = howManyScrolls = 0;
-let y0 = inst.clientHeight;
+let y0 = firstSector.clientHeight;
 
 document.body.style.overflow = "hidden";
 
 addEventListener('resize', scrollNull); //default screen position if width has been changed
 document.addEventListener('DOMContentLoaded', (e) => {DOMReloaded = true; scrollNull(e)}); //or page has been reloaded
 
-document.addEventListener('wheel', (e) => {if (!pauseScroll) scroll(e)}, { passive: false }); //desktop scroll with mouse wheel 
+document.addEventListener('wheel', (e) => {if (!pauseScroll && window.innerWidth > 541) scroll(e)}, { passive: false }); //desktop scroll with mouse wheel 
 window.addEventListener('scroll', (e) => e.preventDefault(), { passive: false }); //stop scroll event
 
 document.addEventListener('touchstart',(e) => {if(!pauseScrollTouch && !active) getTouchStart(e)}); //scroll on touchpads ---
 document.addEventListener('touchend', (e) => {if(!pauseScrollTouch && !active) getTouchEnd(e)} ); //---
-document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false } );
+document.addEventListener('touchmove', (e) => e.preventDefault(), { passive: false } ); //block this to destroy bugs on touchscreens
 
 function getTouchStart(e) {
     startTouchY = e.changedTouches[0].pageY;
@@ -78,63 +78,52 @@ function getTouchEnd(e) {
         showClass(mobSections);
     }
     else {
-        document.body.style.marginTop = -y + "px";
         showClass(hideBlocks);
+        document.body.style.marginTop = -y + "px";
     }
+
+    document.getElementById("topmenu").classList.add('disappear');
+    if (howManyScrolls === 3) {
+        setTimeout( () => 
+            document.getElementById("topmenu").classList.add('topmenu__textYoutube'), "500" )
+    }
+    else {
+        setTimeout( () =>
+            document.getElementById("topmenu").classList.remove('topmenu__textYoutube'), "500" )
+    }
+    setTimeout( () => 
+        document.getElementById("topmenu").classList.remove('disappear'), "500" )
 
     pauseScrollTouch = true;
-    window.setTimeout( () => {pauseScrollTouch = false}, "1000" );
+    window.setTimeout( () => {pauseScrollTouch = false}, "100" );
 
-}
-
-function showClass(what) {
-    switch (howManyScrolls) {
-        case (0):
-            what[0].classList.add('displayer');
-            break;
-        case (1):
-            what[1].classList.add('displayer');
-            break;
-        case (2):
-            what[2].classList.add('displayer');
-            break;
-        case (3):
-            what[3].classList.add('displayer');
-            break;
-        case (4):
-            what[4].classList.add('displayer');
-            break;
-    }
 }
 
 function scroll(e) {
 
+    showClass(hideBlocks);
+
     e.preventDefault();
 
-    y0 = inst.clientHeight;
+    y0 = firstSector.clientHeight;
 
-    if (window.innerWidth > 541) {
+    e = e || window.event;
+    let delta = e.deltaY || e.detail || e.wheelDelta;
 
-        e = e || window.event;
-        let delta = e.deltaY || e.detail || e.wheelDelta;
-
-        if (delta > 0 && howManyScrolls <= 3) {
-            y += y0;
-            howManyScrolls += 1;
-        }
-        else if (delta < 0 && howManyScrolls <= 4 && y > 0) {
-            y -= y0;
-            howManyScrolls -= 1;
-        }
-        
-        document.body.style.marginTop = -y + "px";
-
-        pauseScroll = true;
-        window.setTimeout( () => {pauseScroll=false}, "1000" );
-
+    if (delta > 0 && howManyScrolls <= 3) {
+        y += y0;
+        howManyScrolls += 1;
     }
+    else if (delta < 0 && howManyScrolls <= 4 && y > 0) {
+        y -= y0;
+        howManyScrolls -= 1;
+    }
+    
+    document.body.style.marginTop = -y + "px";
 
-    showClass(hideBlocks);
+    pauseScroll = true;
+    window.setTimeout( () => {pauseScroll=false}, "1000" );
+
 }
 
 function scrollNull() {
@@ -148,16 +137,36 @@ function scrollNull() {
         document.body.style.marginTop = 0;
         howManyScrolls = 0;
         y = 0;
-        y0 = inst.clientHeight;
+        y0 = firstSector.clientHeight;
 
         if (y0 === 0) 
             y0 = webH.clientHeight;
         else 
-            y0 = inst.clientHeight
+            y0 = firstSector.clientHeight
     }
 
     DOMReloaded = false;
 }
+
+function showClass(what) { //show blocks if scrolled
+    switch (howManyScrolls) {
+        case (0):
+            what[1].classList.add('displayer');
+            break;
+        case (1):
+            what[1].classList.add('displayer');
+            what[2].classList.add('displayer');
+            break;
+        case (2):
+            what[3].classList.add('displayer');
+            break;
+        case (3):
+            what[4].classList.add('displayer');
+            break;
+    }
+}
+
+//color changer in youtube block on mobile
 
 //анимация для картинок
 
@@ -168,7 +177,7 @@ animYout = animInst = animBeh = 0;
 reverse = stopanimInst = stopanimYout = stopanimBeh = false;
 
 function imgPosInst() {
-    let divHgts = document.querySelectorAll("div.height");
+    let divHgts = document.getElementById("imginstagram").querySelectorAll("div.height");
     if (document.body.style.marginTop == -y0 + "px" && !stopanimInst) {
         animInst += 15; //тут можно установить скорость перемещения картинок
         for (i = 0 ; i < divHgts.length ; i++) {
@@ -228,7 +237,7 @@ setInterval(imgPosYout, "24");
     //это на беханс
 
 function imgPosBeh() {
-    let pics = document.getElementById("imgbehance").querySelectorAll("img");
+    let pics = document.getElementById("imgbehance").querySelectorAll(".height");
     if (document.body.style.marginTop == -y0 * 2 + "px" && !stopanimBeh) {
         animBeh += 20; //тут можно установить скорость перемещения картинок
         for (i = 0 ; i < pics.length ; i++) {

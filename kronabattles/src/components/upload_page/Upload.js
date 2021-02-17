@@ -118,7 +118,8 @@ export default class Upload extends React.Component {
             <Modal visionModal={this.state.visionModal} exit={ () => this.exitModal() } 
                 textModal={this.state.textModal} send={ () => {this.exitModal(); if(dataAccess) this.sendForm()} }
                 cancel={this.state.cancel} blockModal={this.state.blockModal} />
-            <form ref = {el => (this.form = el)} onSubmit = { e => e.preventDefault() } className='workuploadwindow' >
+            <form ref = {el => (this.form = el)} onSubmit = { e => e.preventDefault() }
+            className='workuploadwindow' method="post" enctype="multipart/form-data">
                 <label draggable="true" htmlFor='input__file' >  
                     <div className={this.state.display}>  
                         <img src="vectors/upload_1part.svg" />

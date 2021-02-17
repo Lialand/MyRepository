@@ -18,7 +18,8 @@ body {
 body, html {
   margin: 0;
   padding: 0;
-  cursor: default; }
+  cursor: default;
+  font-feature-settings: 'pnum' on, 'lnum' on; }
 
 @font-face {
   font-family: "Raleway";
@@ -39,8 +40,7 @@ body, html {
 
 h1, h2, h3, h4, p {
   margin: 0;
-  padding: 0;
-  font-feature-settings: 'pnum' on, 'lnum' on; }
+  padding: 0; }
 
 h1 {
   font-family: "Didact Gothic";
